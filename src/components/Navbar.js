@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import { MenuItems } from "../lists/MenuItems";
+import { menuItems } from "../lists/menuItems";
 import { pallete } from "../lists/pallete";
 
 export default function Navbar() {
@@ -16,7 +16,7 @@ export default function Navbar() {
       </LogoContainer>
       <NavbarContainer open={isActive}>
         <Menu>
-          {MenuItems.map((item) => {
+          {menuItems.map((item) => {
             return (
               <li key={item.name}>
                 <a href={item.href}>{item.name}</a>
@@ -125,6 +125,9 @@ const AuthOptions = styled.div`
 const Login = styled.div`
   padding: 0.5rem;
   color: ${pallete.grayishViolet};
+  &:hover {
+    cursor: pointer;
+  }
   @media screen and (max-width: 960px) {
     color: ${pallete.white};
   }
@@ -134,6 +137,9 @@ const Register = styled.div`
   background-color: ${pallete.cyan};
   padding: 0.5rem;
   border-radius: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
   @media screen and (max-width: 960px) {
     width: 30vw;
     text-align: center;

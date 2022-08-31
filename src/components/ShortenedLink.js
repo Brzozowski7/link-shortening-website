@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { pallete } from "../lists/pallete";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 const isLink = function (props, propName, componentName) {
   const regex =
@@ -12,11 +14,19 @@ const isLink = function (props, propName, componentName) {
     );
   }
 };
-export default function ShortenedLink({ long, short }) {
+export default function ShortenedLink({ long, short, setLinkArr }) {
   const [isCopied, setIsCopied] = useState(false);
   const handleClick = () => {
     navigator.clipboard.writeText(short);
     setIsCopied(true);
+  };
+  const removeLink = () => {
+    console.log(short);
+    setLinkArr((prev) =>
+      prev.filter((item) => {
+        return item.short !== short;
+      })
+    );
   };
   return (
     <ShortenedLinkContainer>
@@ -25,6 +35,9 @@ export default function ShortenedLink({ long, short }) {
       <CopyBtn clicked={isCopied} onClick={() => handleClick()}>
         {isCopied ? "Copied !" : "Copy !"}
       </CopyBtn>
+      <IconContainer>
+        <FontAwesomeIcon onClick={() => removeLink()} icon={faX} />
+      </IconContainer>
     </ShortenedLinkContainer>
   );
 }
@@ -55,7 +68,7 @@ const ShortenedLinkContainer = styled.div`
   }
 `;
 const LinkToShorten = styled.div`
-  max-width: 30%;
+  width: 30%;
   max-height: 2rem;
   color: black;
   word-wrap: break-word;
@@ -68,7 +81,7 @@ const LinkToShorten = styled.div`
   }
 `;
 const ReadyLink = styled.div`
-  max-width: 30%;
+  width: 30%;
   color: ${pallete.cyan};
 `;
 const CopyBtn = styled.button`
@@ -81,12 +94,20 @@ const CopyBtn = styled.button`
   color: ${pallete.white};
   font-size: 1.2rem;
   font-weight: 700;
-  :hover {
+  &:hover {
     cursor: pointer;
   }
   @media screen and (max-width: 960px) {
     align-self: center;
     width: 90%;
     padding: 0.7rem 4rem;
+  }
+`;
+const IconContainer = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+  @media screen and (max-width: 960px) {
+    align-self: center;
   }
 `;

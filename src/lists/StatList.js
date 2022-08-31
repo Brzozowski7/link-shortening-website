@@ -1,7 +1,7 @@
 import brandReco from "../images/icon-brand-recognition.svg";
 import detailedReco from "../images/icon-detailed-records.svg";
 import fullyCust from "../images/icon-fully-customizable.svg";
-const StatList = [
+const statList = [
   {
     image: brandReco,
     content:
@@ -19,7 +19,7 @@ const StatList = [
     content:
       "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.",
     name: "Fully Customizable",
-  },
+  }
 ];
 
-export { StatList };
+export { statList };

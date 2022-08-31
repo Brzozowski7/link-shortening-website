@@ -5,7 +5,7 @@ import LinkShortener from "./LinkShortener";
 import { pallete } from "../lists/pallete";
 import ShortenedLink from "./ShortenedLink";
 import StatComponent from "./StatComponent";
-import { StatList } from "../lists/StatList";
+import { statList } from "../lists/statList";
 
 export default function MainSection() {
   const [linkArr, setLinkArr] = useState([]);
@@ -27,7 +27,12 @@ export default function MainSection() {
       <LinkShortener setLinkArr={setLinkArr} />
       {linkArr.map((item) => {
         return (
-          <ShortenedLink key={item.short} long={item.long} short={item.short} />
+          <ShortenedLink
+            setLinkArr={setLinkArr}
+            key={item.short}
+            long={item.long}
+            short={item.short}
+          />
         );
       })}
       <StatisticsContainer>
@@ -37,7 +42,7 @@ export default function MainSection() {
           statistics dashboard.
         </p>
         <StatComponentsContainer>
-          {StatList.map((item) => {
+          {statList.map((item) => {
             return (
               <StatComponent
                 key={item.name}
@@ -115,6 +120,9 @@ const GetStarted = styled.div`
   padding: 1rem 2rem;
   border-radius: 2rem;
   margin-top: 2rem;
+  &:hover {
+    cursor: pointer;
+  }
   @media screen and (max-width: 960px) {
     width: 70%;
     color: ${pallete.white};

@@ -84,7 +84,10 @@ const LinkInput = styled.input`
   width: 100%;
   padding: 0.5rem 0.5rem;
   font-size: 1rem;
-  border: ${(props) => (props.error ? `2px solid ${pallete.red}` : `1px solid ${pallete.veryDarkViolet}`)};
+  border: ${(props) =>
+    props.error
+      ? `2px solid ${pallete.red}`
+      : `1px solid ${pallete.veryDarkViolet}`};
   border-radius: 0.5rem;
 `;
 const ErrorMsgContainer = styled.div`
@@ -100,7 +103,7 @@ const ShortenBtn = styled.button`
   color: ${pallete.white};
   font-size: 1.2rem;
   font-weight: 700;
-  :hover {
+  &:hover {
     cursor: pointer;
   }
   @media screen and (max-width: 960px) {

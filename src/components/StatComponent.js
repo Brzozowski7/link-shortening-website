@@ -27,9 +27,12 @@ const StatContainer = styled.div`
   padding: 3rem;
   gap: 1rem;
   background-color: ${pallete.gray};
-  border-radius: 0.5rem;
   text-align: center;
   position: relative;
+  @media screen and (max-width: 960px) {
+  border-radius: 0.5rem;
+  }
+
 `;
 const ImgContainer = styled.div`
   position: absolute;

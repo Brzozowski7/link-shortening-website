@@ -1,4 +1,4 @@
-const MenuItems = [
+const menuItems = [
   {
     name: "Features",
     href: "#",
@@ -12,4 +12,4 @@ const MenuItems = [
     href: "#",
   },
 ];
-export { MenuItems };
+export { menuItems };
