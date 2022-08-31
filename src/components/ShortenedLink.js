@@ -68,7 +68,7 @@ const ShortenedLinkContainer = styled.div`
   background-color: ${pallete.gray};
   @media screen and (max-width: 960px) {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
     gap: 1rem;
     width: 90%;
     padding: 2rem;
@@ -77,20 +77,21 @@ const ShortenedLinkContainer = styled.div`
 `;
 const LinkToShorten = styled.div`
   width: 30%;
-  max-height: 2rem;
+  max-height: 3rem;
   color: black;
   word-wrap: break-word;
-  border-bottom: 1px ${pallete.gray} solid;
   overflow: hidden;
   text-overflow: ellipsis;
   @media screen and (max-width: 960px) {
-    max-width: 100%;
-    max-height: 3rem;
+    width: 70%;
   }
 `;
 const ReadyLink = styled.div`
-  width: 30%;
+  width: 50%;
   color: ${pallete.cyan};
+  @media screen and (max-width: 960px) {
+    width: 70%;
+  }
 `;
 
 const IconContainer = styled.div`

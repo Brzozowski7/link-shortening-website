@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Footer from "./components/Footer";
 import MainSection from "./components/MainSection";
 import Navbar from "./components/Navbar";
 
@@ -7,6 +8,7 @@ function App() {
     <Wrapper>
       <Navbar />
       <MainSection />
+      <Footer />
     </Wrapper>
   );
 }

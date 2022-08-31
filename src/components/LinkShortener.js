@@ -55,7 +55,7 @@ export default function LinkShortener({ setLinkArr }) {
         height={2.5}
         width={20}
         widthMobile={90}
-        text={"Shorten It"}
+        text={"Shorten It !"}
         onClick={() => shortenLink()}
       ></Button>
     </LinkShortenerContainer>

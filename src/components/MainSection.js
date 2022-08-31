@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import mainImage from "../images/illustration-working.svg";
+import bgBottom from "../images/bg-shorten-mobile.svg";
 import LinkShortener from "./LinkShortener";
 import { pallete } from "../misc/pallete";
 import ShortenedLink from "./ShortenedLink";
@@ -32,7 +33,10 @@ export default function MainSection() {
           ></Button>
         </InformationContainer>
       </TopElement>
-      <LinkShortener setLinkArr={setLinkArr} />
+      <LinkShortenerContainer>
+        <LinkShortener setLinkArr={setLinkArr} />
+      </LinkShortenerContainer>
+
       {linkArr.map((item) => {
         return (
           <ShortenedLink
@@ -62,6 +66,17 @@ export default function MainSection() {
           })}
         </StatComponentsContainer>
       </StatisticsContainer>
+      <BottomElement>
+        <h2>Boost your links today</h2>
+        <Button
+          width={15}
+          widthMobile={50}
+          radius={2}
+          padHor={2}
+          padVer={1}
+          text={"Get Started"}
+        ></Button>
+      </BottomElement>
     </Main>
   );
 }
@@ -70,7 +85,6 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 5rem;
   @media screen and (max-width: 960px) {
     padding: 0;
   }
@@ -79,9 +93,11 @@ const TopElement = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
+  padding: 0 5rem;
   @media screen and (max-width: 960px) {
     flex-direction: column;
     align-items: center;
+    padding:0;
   }
 `;
 const ImageContainer = styled.div`
@@ -98,7 +114,7 @@ const InformationContainer = styled.div`
   padding: 3rem 1rem 3rem 0;
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: left;
   h2 {
     font-size: 4rem;
@@ -109,6 +125,7 @@ const InformationContainer = styled.div`
     font-size: 1.3rem;
   }
   @media screen and (max-width: 960px) {
+    gap: 1rem;
     align-items: center;
     width: 100%;
     text-align: center;
@@ -121,10 +138,22 @@ const InformationContainer = styled.div`
     }
   }
 `;
+const LinkShortenerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5rem;
+  width: 100%;
+  @media screen and (max-width: 960px) {
+    padding: 0;
+  }
+`;
+
 const StatisticsContainer = styled.div`
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
+  padding: 0 5rem;
   gap: 5rem;
   align-items: center;
   h3 {
@@ -137,6 +166,7 @@ const StatisticsContainer = styled.div`
   @media screen and (max-width: 960px) {
     text-align: center;
     gap: 7rem;
+    padding:0;
   }
 `;
 const StatComponentsContainer = styled.div`
@@ -147,4 +177,16 @@ const StatComponentsContainer = styled.div`
     align-items: center;
     gap: 3.5rem;
   }
+`;
+const BottomElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 14rem;
+  justify-content: center;
+  align-items: center;
+  background-image: url(${bgBottom});
+  background-size: cover;
+  color: white;
+  margin-top: 3rem;
 `;
