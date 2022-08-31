@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import mainImage from "../images/illustration-working.svg";
 import LinkShortener from "./LinkShortener";
-import { pallete } from "../lists/pallete";
+import { pallete } from "../misc/pallete";
 import ShortenedLink from "./ShortenedLink";
 import StatComponent from "./StatComponent";
-import { statList } from "../lists/statList";
+import { statList } from "../misc/statList";
+import Button from "./Button";
 
 export default function MainSection() {
   const [linkArr, setLinkArr] = useState([]);
@@ -21,7 +22,14 @@ export default function MainSection() {
             Build your brand's recognition and get detailed insights on how your
             links are performing.
           </p>
-          <GetStarted>Get Started</GetStarted>
+          <Button
+            width={30}
+            widthMobile={70}
+            radius={2}
+            padHor={2}
+            padVer={1}
+            text={"Get Started"}
+          ></Button>
         </InformationContainer>
       </TopElement>
       <LinkShortener setLinkArr={setLinkArr} />
@@ -90,6 +98,7 @@ const InformationContainer = styled.div`
   padding: 3rem 1rem 3rem 0;
   display: flex;
   flex-direction: column;
+  justify-content:space-around;
   align-items: left;
   h2 {
     font-size: 4rem;
@@ -110,24 +119,6 @@ const InformationContainer = styled.div`
     h2 {
       font-size: 2.5rem;
     }
-  }
-`;
-const GetStarted = styled.div`
-  background-color: ${pallete.cyan};
-  color: ${pallete.white};
-  text-align: center;
-  width: 30%;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  margin-top: 2rem;
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (max-width: 960px) {
-    width: 70%;
-    color: ${pallete.white};
-    border-radius: 1rem;
-    margin-top: 1rem;
   }
 `;
 const StatisticsContainer = styled.div`

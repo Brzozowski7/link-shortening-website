@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import bgMobile from "../images/bg-shorten-mobile.svg";
 import bgDesktop from "../images/bg-shorten-desktop.svg";
-import { pallete } from "../lists/pallete";
+import { pallete } from "../misc/pallete";
+import Button from "./Button";
 
 const linkRegex =
   /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
@@ -46,7 +47,17 @@ export default function LinkShortener({ setLinkArr }) {
         />
         <ErrorMsgContainer>{errorActive ? errorMsg : ""}</ErrorMsgContainer>
       </InputContainer>
-      <ShortenBtn onClick={() => shortenLink()}>Shorten It !</ShortenBtn>
+      <Button
+        padVer={0.7}
+        padHor={0.7}
+        fontSize={1.2}
+        radius={0.5}
+        height={2.5}
+        width={20}
+        widthMobile={90}
+        text={"Shorten It"}
+        onClick={() => shortenLink()}
+      ></Button>
     </LinkShortenerContainer>
   );
 }
@@ -93,21 +104,4 @@ const LinkInput = styled.input`
 const ErrorMsgContainer = styled.div`
   color: ${pallete.red};
   font-style: italic;
-`;
-const ShortenBtn = styled.button`
-  width: 20%;
-  height: 2.5rem;
-  background-color: ${pallete.cyan};
-  border: none;
-  border-radius: 0.5rem;
-  color: ${pallete.white};
-  font-size: 1.2rem;
-  font-weight: 700;
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (max-width: 960px) {
-    width: 90%;
-    padding: 0.7rem 4rem;
-  }
 `;

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { pallete } from "../lists/pallete";
+import { pallete } from "../misc/pallete";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import Button from "./Button";
 
 const isLink = function (props, propName, componentName) {
   const regex =
@@ -32,9 +33,16 @@ export default function ShortenedLink({ long, short, setLinkArr }) {
     <ShortenedLinkContainer>
       <LinkToShorten>{long}</LinkToShorten>
       <ReadyLink>{short}</ReadyLink>
-      <CopyBtn clicked={isCopied} onClick={() => handleClick()}>
-        {isCopied ? "Copied !" : "Copy !"}
-      </CopyBtn>
+      <Button
+        align={"center"}
+        fontSize={1.2}
+        radius={0.5}
+        height={2.5}
+        width={20}
+        widthMobile={90}
+        text={isCopied ? "Copied !" : "Copy !"}
+        onClick={() => handleClick()}
+      ></Button>
       <IconContainer>
         <FontAwesomeIcon onClick={() => removeLink()} icon={faX} />
       </IconContainer>
@@ -84,25 +92,7 @@ const ReadyLink = styled.div`
   width: 30%;
   color: ${pallete.cyan};
 `;
-const CopyBtn = styled.button`
-  width: 20%;
-  height: 2.5rem;
-  background-color: ${(props) =>
-    props.clicked ? `${pallete.darkerCyan}` : `${pallete.cyan}`};
-  border: none;
-  border-radius: 0.5rem;
-  color: ${pallete.white};
-  font-size: 1.2rem;
-  font-weight: 700;
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (max-width: 960px) {
-    align-self: center;
-    width: 90%;
-    padding: 0.7rem 4rem;
-  }
-`;
+
 const IconContainer = styled.div`
   &:hover {
     cursor: pointer;

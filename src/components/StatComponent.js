@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { pallete } from "../lists/pallete";
+import { pallete } from "../misc/pallete";
 
 export default function StatComponent({ name, image, content }) {
   return (

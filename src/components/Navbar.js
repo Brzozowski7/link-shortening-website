@@ -3,8 +3,9 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import { menuItems } from "../lists/menuItems";
-import { pallete } from "../lists/pallete";
+import { menuItems } from "../misc/menuItems";
+import { pallete } from "../misc/pallete";
+import Button from "./Button";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -26,7 +27,7 @@ export default function Navbar() {
         </Menu>
         <AuthOptions>
           <Login>Login</Login>
-          <Register>Sign up</Register>
+          <Button fontSize={1.3} radius={1} padHor={0.5} padVer={0.5} text={"Register"}></Button>
         </AuthOptions>
       </NavbarContainer>
       <MenuIconContainer onClick={() => setIsActive((prev) => !prev)}>
@@ -102,7 +103,7 @@ const Menu = styled.ul`
     justify-content: space-around;
     height: 60%;
     width: 100%;
-    border-bottom: 1px gray solid;
+    border-bottom: 1px ${pallete.gray} solid;
     a {
       color: ${pallete.white};
     }
@@ -130,19 +131,6 @@ const Login = styled.div`
   }
   @media screen and (max-width: 960px) {
     color: ${pallete.white};
-  }
-`;
-const Register = styled.div`
-  color: ${pallete.white};
-  background-color: ${pallete.cyan};
-  padding: 0.5rem;
-  border-radius: 1rem;
-  &:hover {
-    cursor: pointer;
-  }
-  @media screen and (max-width: 960px) {
-    width: 30vw;
-    text-align: center;
   }
 `;
 const MenuIconContainer = styled.div`
