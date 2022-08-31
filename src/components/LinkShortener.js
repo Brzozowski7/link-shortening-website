@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import bgMobile from "../images/bg-shorten-mobile.svg";
 import bgDesktop from "../images/bg-shorten-desktop.svg";
+import { pallete } from "./pallete";
 
 const linkRegex =
   /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
@@ -90,7 +91,7 @@ const LinkInput = styled.input`
   border-radius: 0.5rem;
 `;
 const ErrorMsgContainer = styled.div`
-  color: hsl(0, 87%, 67%);
+  color: ${pallete.red};
   font-style: italic;
 `;
 const ShortenBtn = styled.button`

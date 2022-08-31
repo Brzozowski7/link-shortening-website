@@ -4,6 +4,7 @@ import logo from "../images/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { MenuItems } from "./MenuItems";
+import { pallete } from "./pallete";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -48,11 +49,7 @@ const Header = styled.header`
   padding: 3rem 5rem;
   justify-content: space-between;
   @media screen and (max-width: 960px) {
-    display: flex;
-    flex-direction: row;
     padding: 2rem 2rem;
-    width: 100%;
-    justify-content: space-between;
   }
 `;
 const LogoContainer = styled.div`
@@ -78,7 +75,7 @@ const NavbarContainer = styled.nav`
     margin-right: auto;
     height: 90%;
     width: 90vw;
-    background-color: hsl(257, 27%, 26%);
+    background-color: ${pallete.darkViolet};
     border-radius: 1rem;
     padding: 4rem 0;
     font-size: 1.5rem;
@@ -94,10 +91,10 @@ const Menu = styled.ul`
   }
   a {
     text-decoration: none;
-    color: hsl(257, 7%, 63%);
+    color: ${pallete.grayishViolet};
   }
   a:hover {
-    color: hsl(257, 27%, 26%);
+    color: ${pallete.darkViolet};
   }
   @media screen and (max-width: 960px) {
     display: flex;
@@ -133,14 +130,14 @@ const AuthOptions = styled.div`
 `;
 const Login = styled.div`
   padding: 0.5rem;
-  color: hsl(257, 7%, 63%);
+  color: ${pallete.grayishViolet};
   @media screen and (max-width: 960px) {
     color: white;
   }
 `;
 const Register = styled.div`
   color: white;
-  background-color: hsl(180, 66%, 49%);
+  background-color: ${pallete.cyan};
   padding: 0.5rem;
   border-radius: 1rem;
   @media screen and (max-width: 960px) {

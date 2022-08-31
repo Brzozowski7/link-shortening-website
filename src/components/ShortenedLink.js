@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { pallete } from "./pallete";
 
 const isLink = function (props, propName, componentName) {
   const regex =
@@ -43,7 +44,7 @@ const ShortenedLinkContainer = styled.div`
   padding: 1.5rem 3rem;
   border-radius: 0.5rem;
   gap: 2rem;
-  background-color: hsl(0, 0%, 95%);
+  background-color: ${pallete.gray};
   @media screen and (max-width: 960px) {
     display: flex;
     flex-direction: column;

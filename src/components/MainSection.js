@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import mainImage from "../images/illustration-working.svg";
 import LinkShortener from "./LinkShortener";
+import { pallete } from "./pallete";
 import ShortenedLink from "./ShortenedLink";
 import StatComponent from "./StatComponent";
 import { StatList } from "./StatList";
@@ -89,10 +90,10 @@ const InformationContainer = styled.div`
   align-items: left;
   h2 {
     font-size: 4rem;
-    color: hsl(255, 11%, 22%);
+    color: ${pallete.veryDarkBlue};
   }
   p {
-    color: hsl(257, 7%, 63%);
+    color: ${pallete.grayishViolet};
     font-size: 1.3rem;
   }
   @media screen and (max-width: 960px) {
@@ -103,7 +104,7 @@ const InformationContainer = styled.div`
     text-align: center;
     padding: 2rem 2rem;
     p {
-      color: hsl(257, 7%, 63%);
+      color: ${pallete.grayishViolet};
     }
     h2 {
       font-size: 2.5rem;
@@ -133,11 +134,11 @@ const StatisticsContainer = styled.div`
   gap: 5rem;
   align-items: center;
   h3 {
-    color: hsl(255, 11%, 22%);
+    color: ${pallete.veryDarkBlue};
     margin-bottom: -4.5rem;
   }
   p {
-    color: hsl(257, 7%, 63%);
+    color: ${pallete.grayishViolet};
   }
   @media screen and (max-width: 960px) {
     flex-direction: column;

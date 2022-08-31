@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { pallete } from "./pallete";
 
 export default function StatComponent({ name, image, content }) {
   return (
     <StatContainer>
       <ImgContainer>
-        <img src={image} alt="stat icon" />
+        <img src={image} alt="stat icon" loading="lazy"/>
       </ImgContainer>
       <h4>{name}</h4>
       <p>{content}</p>
@@ -25,7 +26,7 @@ const StatContainer = styled.div`
   width: 90%;
   padding: 3rem;
   gap: 1rem;
-  background-color: hsl(0, 0%, 95%);
+  background-color: ${pallete.gray};
   border-radius: 0.5rem;
   text-align: center;
   position: relative;
