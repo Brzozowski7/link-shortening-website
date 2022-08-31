@@ -14,7 +14,7 @@ export default function Navbar() {
         <NavbarContainer open={isActive}>
         <Menu>
         {MenuItems.map(item =>{
-          return <li><a href={item.href}>{item.name}</a></li>
+          return <li key={item.name}><a href={item.href}>{item.name}</a></li>
         })}
         </Menu>
         <AuthOptions>

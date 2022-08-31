@@ -1,9 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from "styled-components"
 import mainImage from '../images/illustration-working.svg'
 import LinkShortener from './LinkShortener'
 import ShortenedLink from './ShortenedLink'
 export default function MainSection() {
+  const [linkArr, setLinkArr] = useState([])
   return (
     <Main>
       <TopElement>
@@ -14,8 +15,10 @@ export default function MainSection() {
           <GetStarted>Get Started</GetStarted>
         </InformationContainer>
       </TopElement>
-      <LinkShortener />
-      <ShortenedLink />
+      <LinkShortener setLinkArr={setLinkArr}/>
+      {linkArr.map(item=>{
+        return <ShortenedLink long={item.long} short={item.short}/>
+      })}
     </Main>
   )
 }

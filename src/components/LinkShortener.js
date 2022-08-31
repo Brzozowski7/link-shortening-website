@@ -3,14 +3,25 @@ import styled from "styled-components"
 import bgMobile from "../images/bg-shorten-mobile.svg"
 import bgDesktop from "../images/bg-shorten-desktop.svg"
 
-export default function LinkShortener() {
+export default function LinkShortener({setLinkArr}) {
+const [nextLink, setNextLink]=useState("")
+const handleChange = (e) =>{
+   setNextLink(e.target.value);
+}
+const shortenLink = async () =>{
+    const api = await fetch(`https://api.shrtco.de/v2/shorten?url=${nextLink}`)
+    const data = await api.json();
+    console.log(data.result.full_short_link)
+    setLinkArr(prev=> [...prev,{long:nextLink,short:data.result.full_short_link}])
+    setNextLink("");
+}
   return (
     <LinkShortenerContainer>
         <InputContainer>
-            <LinkInput type="text"/>
+            <LinkInput value={nextLink} onChange={(e)=>handleChange(e)}type="text"/>
             <ErrorMsgContainer>Please add link</ErrorMsgContainer>
         </InputContainer>
-        <ShortenBtn>Shorten it !</ShortenBtn>
+        <ShortenBtn onClick={()=> shortenLink()}>Shorten it !</ShortenBtn>
     </LinkShortenerContainer>
   )
 }

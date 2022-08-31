@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from "styled-components"
 
-export default function ShortenedLink() {
+export default function ShortenedLink({long,short}) {
   return (
     <ShortenedLinkContainer>
-        <LinkToShorten>https://stackoverflow.com/questions/53920405</LinkToShorten>
-        <ReadyLink>ShortenedLink.com</ReadyLink>
+        <LinkToShorten>{long}</LinkToShorten>
+        <ReadyLink>{short}</ReadyLink>
         <CopyBtn>Copy !</CopyBtn>
     </ShortenedLinkContainer>
   )
