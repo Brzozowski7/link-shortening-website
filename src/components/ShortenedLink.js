@@ -1,21 +1,26 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from "styled-components"
 
 export default function ShortenedLink({long,short}) {
+    const [isCopied, setIsCopied] = useState(false);
+    const handleClick = () =>{
+        navigator.clipboard.writeText(short);
+        setIsCopied(true);
+    }
   return (
     <ShortenedLinkContainer>
         <LinkToShorten>{long}</LinkToShorten>
         <ReadyLink>{short}</ReadyLink>
-        <CopyBtn>Copy !</CopyBtn>
+        <CopyBtn clicked={isCopied} onClick={() => handleClick()}>{isCopied ? "Copied !" : "Copy !"}</CopyBtn>
     </ShortenedLinkContainer>
   )
 }
 
 const ShortenedLinkContainer = styled.div`
-margin-top:2rem;
+    margin-top:2rem;
     display:flex;
     flex-direction:row;
-    justify-content:center;
+    justify-content:space-around;
     align-items:center;
     width:100%;
     padding:1.5rem 3rem;
@@ -25,7 +30,7 @@ margin-top:2rem;
 @media screen and (max-width: 960px){
     display:flex;
     flex-direction:column;
-    align-items:center;
+    align-items:flex-start;
     padding:0rem;
     gap:1rem;
     width:90%;
@@ -34,25 +39,36 @@ margin-top:2rem;
 }
 `
 const LinkToShorten = styled.div`
-max-width:100%;
+max-width:30%;
+max-height:2rem;
 color:black;
 word-wrap: break-word;
 border-bottom:1px gray solid;
+overflow: hidden;
+text-overflow: ellipsis;
+@media screen and (max-width: 960px){
+    max-width:100%;
+    max-height:3rem;
+}
 `
 const ReadyLink = styled.div`
-width:100%;
-color:hsl(180, 66%, 49%);
+    max-width:30%;
+    color:hsl(180, 66%, 49%);
 `
 const CopyBtn = styled.button`
     width:20%;
     height:2.5rem;
-    background-color:hsl(180, 66%, 49%);
+    background-color:${props=>props.clicked ? "hsl(180, 33%, 49%)" : "hsl(180, 66%, 49%)"};
     border:none;
     border-radius:0.5rem;
     color:white;
     font-size:1.2rem;
     font-weight:700;
+:hover{
+    cursor:pointer;
+}
 @media screen and (max-width: 960px){
+    align-self:center;
     width:90%;
     padding:0.7rem 4rem;
 }
