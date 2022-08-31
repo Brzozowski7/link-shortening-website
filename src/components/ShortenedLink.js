@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { pallete } from "./pallete";
+import { pallete } from "../lists/pallete";
 
 const isLink = function (props, propName, componentName) {
   const regex =
@@ -46,10 +46,8 @@ const ShortenedLinkContainer = styled.div`
   gap: 2rem;
   background-color: ${pallete.gray};
   @media screen and (max-width: 960px) {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0rem;
     gap: 1rem;
     width: 90%;
     padding: 2rem;
@@ -61,7 +59,7 @@ const LinkToShorten = styled.div`
   max-height: 2rem;
   color: black;
   word-wrap: break-word;
-  border-bottom: 1px gray solid;
+  border-bottom: 1px ${pallete.gray} solid;
   overflow: hidden;
   text-overflow: ellipsis;
   @media screen and (max-width: 960px) {
@@ -71,16 +69,16 @@ const LinkToShorten = styled.div`
 `;
 const ReadyLink = styled.div`
   max-width: 30%;
-  color: hsl(180, 66%, 49%);
+  color: ${pallete.cyan};
 `;
 const CopyBtn = styled.button`
   width: 20%;
   height: 2.5rem;
   background-color: ${(props) =>
-    props.clicked ? "hsl(180, 33%, 49%)" : "hsl(180, 66%, 49%)"};
+    props.clicked ? `${pallete.darkerCyan}` : `${pallete.cyan}`};
   border: none;
   border-radius: 0.5rem;
-  color: white;
+  color: ${pallete.white};
   font-size: 1.2rem;
   font-weight: 700;
   :hover {

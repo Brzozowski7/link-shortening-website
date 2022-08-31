@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import mainImage from "../images/illustration-working.svg";
 import LinkShortener from "./LinkShortener";
-import { pallete } from "./pallete";
+import { pallete } from "../lists/pallete";
 import ShortenedLink from "./ShortenedLink";
 import StatComponent from "./StatComponent";
-import { StatList } from "./StatList";
+import { StatList } from "../lists/StatList";
 
 export default function MainSection() {
   const [linkArr, setLinkArr] = useState([]);
@@ -67,10 +67,8 @@ const TopElement = styled.div`
   display: flex;
   flex-direction: row-reverse;
   @media screen and (max-width: 960px) {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
   }
 `;
 const ImageContainer = styled.div`
@@ -99,8 +97,6 @@ const InformationContainer = styled.div`
   @media screen and (max-width: 960px) {
     align-items: center;
     width: 100%;
-    display: flex;
-    flex-direction: column;
     text-align: center;
     padding: 2rem 2rem;
     p {
@@ -112,8 +108,8 @@ const InformationContainer = styled.div`
   }
 `;
 const GetStarted = styled.div`
-  background-color: hsl(180, 66%, 49%);
-  color: white;
+  background-color: ${pallete.cyan};
+  color: ${pallete.white};
   text-align: center;
   width: 30%;
   padding: 1rem 2rem;
@@ -121,8 +117,7 @@ const GetStarted = styled.div`
   margin-top: 2rem;
   @media screen and (max-width: 960px) {
     width: 70%;
-    color: white;
-    padding: 1rem 2rem;
+    color: ${pallete.white};
     border-radius: 1rem;
     margin-top: 1rem;
   }
@@ -141,7 +136,6 @@ const StatisticsContainer = styled.div`
     color: ${pallete.grayishViolet};
   }
   @media screen and (max-width: 960px) {
-    flex-direction: column;
     text-align: center;
     gap: 7rem;
   }

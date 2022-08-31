@@ -3,8 +3,8 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import { MenuItems } from "./MenuItems";
-import { pallete } from "./pallete";
+import { MenuItems } from "../lists/MenuItems";
+import { pallete } from "../lists/pallete";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -97,22 +97,17 @@ const Menu = styled.ul`
     color: ${pallete.darkViolet};
   }
   @media screen and (max-width: 960px) {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     height: 60%;
     width: 100%;
     border-bottom: 1px gray solid;
-    li {
-      list-style-type: none;
-    }
     a {
-      text-decoration: none;
-      color: white;
+      color: ${pallete.white};
     }
     a:hover {
-      color: white;
+      color: ${pallete.white};
     }
   }
 `;
@@ -121,7 +116,6 @@ const AuthOptions = styled.div`
   flex-direction: row;
   gap: 2rem;
   @media screen and (max-width: 960px) {
-    display: flex;
     height: 40%;
     flex-direction: column;
     align-items: center;
@@ -132,11 +126,11 @@ const Login = styled.div`
   padding: 0.5rem;
   color: ${pallete.grayishViolet};
   @media screen and (max-width: 960px) {
-    color: white;
+    color: ${pallete.white};
   }
 `;
 const Register = styled.div`
-  color: white;
+  color: ${pallete.white};
   background-color: ${pallete.cyan};
   padding: 0.5rem;
   border-radius: 1rem;

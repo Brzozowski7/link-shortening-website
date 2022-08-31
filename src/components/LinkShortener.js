@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import bgMobile from "../images/bg-shorten-mobile.svg";
 import bgDesktop from "../images/bg-shorten-desktop.svg";
-import { pallete } from "./pallete";
+import { pallete } from "../lists/pallete";
 
 const linkRegex =
   /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
@@ -64,13 +64,10 @@ const LinkShortenerContainer = styled.div`
   border-radius: 0.5rem;
   gap: 2rem;
   @media screen and (max-width: 960px) {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0rem;
     gap: 1rem;
     width: 90%;
-    height: 8rem;
     padding: 2rem;
     border-radius: 1rem;
     background-image: url(${bgMobile});
@@ -87,7 +84,7 @@ const LinkInput = styled.input`
   width: 100%;
   padding: 0.5rem 0.5rem;
   font-size: 1rem;
-  border: ${(props) => (props.error ? "2px solid red" : "1px solid black")};
+  border: ${(props) => (props.error ? `2px solid ${pallete.red}` : `1px solid ${pallete.veryDarkViolet}`)};
   border-radius: 0.5rem;
 `;
 const ErrorMsgContainer = styled.div`
@@ -97,10 +94,10 @@ const ErrorMsgContainer = styled.div`
 const ShortenBtn = styled.button`
   width: 20%;
   height: 2.5rem;
-  background-color: hsl(180, 66%, 49%);
+  background-color: ${pallete.cyan};
   border: none;
   border-radius: 0.5rem;
-  color: white;
+  color: ${pallete.white};
   font-size: 1.2rem;
   font-weight: 700;
   :hover {
