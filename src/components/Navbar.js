@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import styled from "styled-components"
-import {ReactComponent as Logo} from "../images/logo.svg"
+import logo from "../images/logo.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
 import { MenuItems } from './MenuItems'
@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <Header>
-      <Logo width="200px"/>
+      <LogoContainer width="200px"><img src={logo} alt="logo"/></LogoContainer>
         <NavbarContainer open={isActive}>
         <Menu>
         {MenuItems.map(item =>{
@@ -35,18 +35,22 @@ const Header = styled.header`
   display:flex;
   flex-direction:row;
   width:100%;
-  padding:0 5rem;
   height:3rem;
   align-items:center;
+  padding:3rem 5rem;
   justify-content:space-between;
 @media screen and (max-width: 960px){
   display:flex;
   flex-direction:row;
-  padding:0;
+  padding:2rem 2rem;
   width:100%;
   justify-content:space-between;
 }
 `
+const LogoContainer = styled.div`
+img{
+  vertical-align:middle;
+}`
 const NavbarContainer = styled.nav`
   display:flex;
   flex-direction:row;
@@ -63,10 +67,12 @@ const NavbarContainer = styled.nav`
   right: 0; 
   margin-left: auto; 
   margin-right: auto; 
-  height:60%;
+  height:90%;
   width:90vw;
   background-color:hsl(257, 27%, 26%);
   border-radius:1rem;
+  padding:4rem 0;
+  font-size:1.5rem;
 }
 `
 const Menu = styled.ul`
@@ -87,11 +93,12 @@ a:hover{
   display:flex;
   flex-direction:column;
   align-items:center;
+  justify-content:space-around;
+  height:60%;
   width:100%;
   border-bottom:1px gray solid;
 li{
   list-style-type:none;
-  padding:2rem;
 }
 a{
   text-decoration:none;
@@ -107,10 +114,11 @@ const AuthOptions = styled.div`
   flex-direction:row;
   gap:2rem;
 @media screen and (max-width: 960px){
-  margin-top:1rem;
   display:flex;
+  height:40%;
   flex-direction:column;
   align-items:center;
+  justify-content:space-around;
 }
 `
 const Login = styled.div`
@@ -126,7 +134,7 @@ const Register = styled.div`
   padding:0.5rem;
   border-radius:1rem;
 @media screen and (max-width: 960px){
-  width:50vw;
+  width:30vw;
   text-align:center;
 }
 `
