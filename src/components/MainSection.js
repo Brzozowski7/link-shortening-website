@@ -1,23 +1,36 @@
 import React from 'react'
 import styled from "styled-components"
 import mainImage from '../images/illustration-working.svg'
+import LinkShortener from './LinkShortener'
 export default function MainSection() {
   return (
     <Main>
-      <ImageContainer><img src={mainImage} alt="main"/></ImageContainer>
-      <InformationContainer>
-        <h2>More than just shorter links</h2>
-        <p>Build your brand's recognition and get detailed insights on how your links are performing.</p>
-        <GetStarted>Get Started</GetStarted>
-      </InformationContainer>
+      <TopElement>
+        <ImageContainer><img src={mainImage} alt="main"/></ImageContainer>
+        <InformationContainer>
+          <h2>More than just shorter links</h2>
+          <p>Build your brand's recognition and get detailed insights on how your links are performing.</p>
+          <GetStarted>Get Started</GetStarted>
+        </InformationContainer>
+      </TopElement>
+      <LinkShortener />
     </Main>
   )
 }
 const Main = styled.main`
-width:100%;
-display:flex;
-flex-direction:row-reverse;
-padding:0 5rem;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 5rem;
+  @media screen and (max-width: 960px){
+  padding:0;
+}
+`
+const TopElement = styled.div`
+  width:100%;
+  display:flex;
+  flex-direction:row-reverse;
 @media screen and (max-width: 960px){
   display:flex;
   flex-direction:column;
@@ -26,7 +39,7 @@ padding:0 5rem;
 }
 `
 const ImageContainer = styled.div`
-width:50%;
+  width:50%;
 @media screen and (max-width: 960px){
   width:100%;
 img{
@@ -73,7 +86,7 @@ const GetStarted = styled.div`
   border-radius: 2rem;
   margin-top:2rem;
 @media screen and (max-width: 960px){
-  width:50%;
+  width:70%;
   color:white;
   padding:1rem 2rem;
   border-radius: 1rem;
