@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import mainImage from '../images/illustration-working.svg'
 import LinkShortener from './LinkShortener'
+import ShortenedLink from './ShortenedLink'
 export default function MainSection() {
   return (
     <Main>
@@ -14,6 +15,7 @@ export default function MainSection() {
         </InformationContainer>
       </TopElement>
       <LinkShortener />
+      <ShortenedLink />
     </Main>
   )
 }

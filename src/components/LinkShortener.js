@@ -16,11 +16,12 @@ export default function LinkShortener() {
 }
 
 const LinkShortenerContainer = styled.div`
+    margin-top:2rem;
     display:flex;
     flex-direction:row;
     justify-content:center;
     width:100%;
-    padding:3rem 8rem;
+    padding:3rem 8rem 1rem;
     background-image:url(${bgDesktop});
     background-size:cover;
     border-radius:0.5rem;
@@ -43,14 +44,15 @@ const InputContainer = styled.div`
 width:100%;
 display:flex;
 flex-direction:column;
-align-items:center;
+align-items:left;
+
 `
 
 const LinkInput = styled.input`
 width:100%;
 font-size:2rem;
 @media screen and (max-width: 960px){
-    width:90%;
+    width:100%;
     font-size:1.7rem;
 }
 `
@@ -60,7 +62,7 @@ const ErrorMsgContainer = styled.div`
 `
 const ShortenBtn = styled.button`
     width:20%;
-    height:2.2rem;
+    height:2.5rem;
     background-color:hsl(180, 66%, 49%);
     border:none;
     border-radius:0.5rem;
