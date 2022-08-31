@@ -34,7 +34,7 @@ const shortenLink = async () =>{
             <LinkInput error={errorActive} value={nextLink} onChange={(e)=>handleChange(e)}type="text"/>
             <ErrorMsgContainer>{errorActive ? errorMsg : ""}</ErrorMsgContainer>
         </InputContainer>
-        <ShortenBtn onClick={()=> shortenLink()}>Shorten it !</ShortenBtn>
+        <ShortenBtn onClick={()=> shortenLink()}>Shorten It !</ShortenBtn>
     </LinkShortenerContainer>
   )
 }
@@ -45,6 +45,7 @@ const LinkShortenerContainer = styled.div`
     flex-direction:row;
     justify-content:center;
     width:100%;
+    height:8rem;
     padding:3rem 8rem 3rem;
     background-image:url(${bgDesktop});
     background-size:cover;
@@ -57,6 +58,7 @@ const LinkShortenerContainer = styled.div`
     padding:0rem;
     gap:1rem;
     width:90%;
+    height:8rem;
     padding:2rem;
     border-radius:1rem;
     background-image:url(${bgMobile});

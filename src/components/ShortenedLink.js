@@ -1,6 +1,13 @@
 import React,{useState} from 'react'
 import styled from "styled-components"
 
+const isLink = function(props, propName, componentName) {
+    const regex = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+    
+    if (!regex.test(props[propName])) {
+      return new Error(`Invalid prop ${propName} passed to ${componentName}. Expected a link.`);
+    }
+}
 export default function ShortenedLink({long,short}) {
     const [isCopied, setIsCopied] = useState(false);
     const handleClick = () =>{
@@ -14,6 +21,11 @@ export default function ShortenedLink({long,short}) {
         <CopyBtn clicked={isCopied} onClick={() => handleClick()}>{isCopied ? "Copied !" : "Copy !"}</CopyBtn>
     </ShortenedLinkContainer>
   )
+}
+
+ShortenedLink.propTypes = {
+    long:isLink,
+    short:isLink
 }
 
 const ShortenedLinkContainer = styled.div`
@@ -39,13 +51,13 @@ const ShortenedLinkContainer = styled.div`
 }
 `
 const LinkToShorten = styled.div`
-max-width:30%;
-max-height:2rem;
-color:black;
-word-wrap: break-word;
-border-bottom:1px gray solid;
-overflow: hidden;
-text-overflow: ellipsis;
+    max-width:30%;
+    max-height:2rem;
+    color:black;
+    word-wrap: break-word;
+    border-bottom:1px gray solid;
+    overflow: hidden;
+    text-overflow: ellipsis;
 @media screen and (max-width: 960px){
     max-width:100%;
     max-height:3rem;

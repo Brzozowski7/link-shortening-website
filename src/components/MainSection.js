@@ -3,6 +3,9 @@ import styled from "styled-components"
 import mainImage from '../images/illustration-working.svg'
 import LinkShortener from './LinkShortener'
 import ShortenedLink from './ShortenedLink'
+import StatComponent from './StatComponent'
+import { StatList } from './StatList'
+
 export default function MainSection() {
   const [linkArr, setLinkArr] = useState([])
   return (
@@ -17,8 +20,17 @@ export default function MainSection() {
       </TopElement>
       <LinkShortener setLinkArr={setLinkArr}/>
       {linkArr.map(item=>{
-        return <ShortenedLink long={item.long} short={item.short}/>
+        return <ShortenedLink key={item.short} long={item.long} short={item.short}/>
       })}
+      <StatisticsContainer>
+      <h3>Advanced Statistics</h3>
+      <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
+      <StatComponentsContainer>
+      {StatList.map((item)=>{
+        return <StatComponent key={item.name} name={item.name} image={item.image} content={item.content}/>
+      })}
+      </StatComponentsContainer>
+      </StatisticsContainer>
     </Main>
   )
 }
@@ -51,7 +63,6 @@ img{
   max-width:100%;
 }
 }
-
 `
 const InformationContainer = styled.div`
   width:50%;
@@ -96,5 +107,33 @@ const GetStarted = styled.div`
   padding:1rem 2rem;
   border-radius: 1rem;
   margin-top:1rem;
+}
+`
+const StatisticsContainer = styled.div`
+  margin-top:3rem;
+  display:flex;
+  flex-direction:column;
+  gap:5rem;
+  align-items:center;
+h3{
+  color:hsl(255, 11%, 22%);
+  margin-bottom:-4.5rem;
+}
+p{
+  color:hsl(257, 7%, 63%);
+}
+@media screen and (max-width: 960px){
+  flex-direction:column;
+  text-align:center;
+  gap:7rem;
+}
+`
+const StatComponentsContainer = styled.div`
+  display:flex;
+  flex-direction:row;
+@media screen and (max-width: 960px){
+  flex-direction:column;
+  align-items:center;
+  gap:3.5rem;
 }
 `
