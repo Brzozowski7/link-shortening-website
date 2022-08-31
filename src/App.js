@@ -17,4 +17,5 @@ flex-direction:row;
 width:100vw;
 height:100vh;
 padding:1rem 2rem;
+position:relative;
 `
