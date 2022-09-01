@@ -7,7 +7,7 @@ export default function StatComponent({ name, image, content }) {
   return (
     <StatContainer>
       <ImgContainer>
-        <img src={image} alt="stat icon" loading="lazy"/>
+        <img src={image} alt="stat icon" loading="lazy" />
       </ImgContainer>
       <h4>{name}</h4>
       <p>{content}</p>
@@ -30,9 +30,8 @@ const StatContainer = styled.div`
   text-align: center;
   position: relative;
   @media screen and (max-width: 960px) {
-  border-radius: 0.5rem;
+    border-radius: 0.5rem;
   }
-
 `;
 const ImgContainer = styled.div`
   position: absolute;

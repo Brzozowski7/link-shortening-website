@@ -19,7 +19,7 @@ const statList = [
     content:
       "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.",
     name: "Fully Customizable",
-  }
+  },
 ];
 
 export { statList };
