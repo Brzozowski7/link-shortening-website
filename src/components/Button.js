@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { pallete } from "../misc/pallete";
 
 export default function Button({ size, text, onClick }) {
@@ -9,6 +10,11 @@ export default function Button({ size, text, onClick }) {
     <MediumBtn onClick={onClick}>{text}</MediumBtn>
   );
 }
+Button.propTypes = {
+  size: PropTypes.string,
+  text: PropTypes.string,
+  onClick: PropTypes.func,
+};
 const SmallBtn = styled.button`
   border: none;
   border-radius: 1rem;
