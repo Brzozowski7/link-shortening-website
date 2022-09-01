@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import mainImage from "../images/illustration-working.svg";
 import bgBottom from "../images/bg-shorten-mobile.svg";
@@ -22,7 +22,7 @@ export default function MainSection() {
   useEffect(() => {
     localStorage.setItem("links", JSON.stringify(linkArr));
   }, [linkArr]);
-  
+
   return (
     <Main>
       <TopElement>
