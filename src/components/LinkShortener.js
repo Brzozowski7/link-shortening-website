@@ -48,13 +48,7 @@ export default function LinkShortener({ setLinkArr }) {
         <ErrorMsgContainer>{errorActive ? errorMsg : ""}</ErrorMsgContainer>
       </InputContainer>
       <Button
-        padVer={0.7}
-        padHor={0.7}
-        fontSize={1.2}
-        radius={0.5}
-        height={2.5}
-        width={20}
-        widthMobile={90}
+        size={"medium"}
         text={"Shorten It !"}
         onClick={() => shortenLink()}
       ></Button>
@@ -67,9 +61,10 @@ const LinkShortenerContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items:center;
   width: 100%;
   height: 8rem;
-  padding: 3rem 8rem 3rem;
+  padding: 3rem 7rem;
   background-image: url(${bgDesktop});
   background-size: cover;
   border-radius: 0.5rem;
@@ -79,7 +74,7 @@ const LinkShortenerContainer = styled.div`
     align-items: center;
     gap: 1rem;
     width: 90%;
-    padding: 2rem;
+    padding: 5rem 2rem;
     border-radius: 1rem;
     background-image: url(${bgMobile});
     background-size: cover;

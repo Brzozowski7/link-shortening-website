@@ -27,7 +27,7 @@ export default function Navbar() {
         </Menu>
         <AuthOptions>
           <Login>Login</Login>
-          <Button fontSize={1.3} radius={1} padHor={0.5} padVer={0.5} text={"Register"}></Button>
+          <Button size={"small"} text={"Register"}></Button>
         </AuthOptions>
       </NavbarContainer>
       <MenuIconContainer onClick={() => setIsActive((prev) => !prev)}>

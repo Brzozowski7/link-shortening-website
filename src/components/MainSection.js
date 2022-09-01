@@ -23,30 +23,22 @@ export default function MainSection() {
             Build your brand's recognition and get detailed insights on how your
             links are performing.
           </p>
-          <Button
-            width={30}
-            widthMobile={70}
-            radius={2}
-            padHor={2}
-            padVer={1}
-            text={"Get Started"}
-          ></Button>
+          <Button size={"medium"} text={"Get Started"}></Button>
         </InformationContainer>
       </TopElement>
       <LinkShortenerContainer>
         <LinkShortener setLinkArr={setLinkArr} />
-      </LinkShortenerContainer>
-
-      {linkArr.map((item) => {
-        return (
-          <ShortenedLink
-            setLinkArr={setLinkArr}
-            key={item.short}
-            long={item.long}
-            short={item.short}
-          />
-        );
-      })}
+        {linkArr.map((item) => {
+          return (
+            <ShortenedLink
+              setLinkArr={setLinkArr}
+              key={item.short}
+              long={item.long}
+              short={item.short}
+            />
+          );
+        })}
+        </LinkShortenerContainer>
       <StatisticsContainer>
         <h3>Advanced Statistics</h3>
         <p>
@@ -68,14 +60,7 @@ export default function MainSection() {
       </StatisticsContainer>
       <BottomElement>
         <h2>Boost your links today</h2>
-        <Button
-          width={15}
-          widthMobile={50}
-          radius={2}
-          padHor={2}
-          padVer={1}
-          text={"Get Started"}
-        ></Button>
+        <Button size={"medium"} text={"Get Started"}></Button>
       </BottomElement>
     </Main>
   );
@@ -97,7 +82,7 @@ const TopElement = styled.div`
   @media screen and (max-width: 960px) {
     flex-direction: column;
     align-items: center;
-    padding:0;
+    padding: 0;
   }
 `;
 const ImageContainer = styled.div`
@@ -148,7 +133,6 @@ const LinkShortenerContainer = styled.div`
     padding: 0;
   }
 `;
-
 const StatisticsContainer = styled.div`
   margin-top: 3rem;
   display: flex;
@@ -166,7 +150,7 @@ const StatisticsContainer = styled.div`
   @media screen and (max-width: 960px) {
     text-align: center;
     gap: 7rem;
-    padding:0;
+    padding: 0;
   }
 `;
 const StatComponentsContainer = styled.div`

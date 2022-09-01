@@ -34,12 +34,7 @@ export default function ShortenedLink({ long, short, setLinkArr }) {
       <LinkToShorten>{long}</LinkToShorten>
       <ReadyLink>{short}</ReadyLink>
       <Button
-        align={"center"}
-        fontSize={1.2}
-        radius={0.5}
-        height={2.5}
-        width={20}
-        widthMobile={90}
+        size={"medium"}
         text={isCopied ? "Copied !" : "Copy !"}
         onClick={() => handleClick()}
       ></Button>
