@@ -39,7 +39,7 @@ export default function ShortenedLink({ long, short, setLinkArr }) {
         onClick={() => handleClick()}
       ></Button>
       <IconContainer>
-        <FontAwesomeIcon onClick={() => removeLink()} icon={faX} />
+        <FontAwesomeIcon onClick={() => removeLink()} icon={faX} size={"sm"} />
       </IconContainer>
     </ShortenedLinkContainer>
   );

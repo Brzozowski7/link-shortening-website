@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import mainImage from "../images/illustration-working.svg";
 import bgBottom from "../images/bg-shorten-mobile.svg";
@@ -11,6 +11,18 @@ import Button from "./Button";
 
 export default function MainSection() {
   const [linkArr, setLinkArr] = useState([]);
+  useEffect(() => {
+    const check = localStorage.getItem(`links`);
+    if (check) {
+      setLinkArr(JSON.parse(check));
+    } else {
+      return;
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("links", JSON.stringify(linkArr));
+  }, [linkArr]);
+  
   return (
     <Main>
       <TopElement>
@@ -38,7 +50,7 @@ export default function MainSection() {
             />
           );
         })}
-        </LinkShortenerContainer>
+      </LinkShortenerContainer>
       <StatisticsContainer>
         <h3>Advanced Statistics</h3>
         <p>
@@ -173,4 +185,5 @@ const BottomElement = styled.div`
   background-size: cover;
   color: white;
   margin-top: 3rem;
+  gap: 2rem;
 `;

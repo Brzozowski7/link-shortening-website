@@ -1,16 +1,13 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
 import React from "react";
 import styled from "styled-components";
 import { pallete } from "../misc/pallete";
 
 export default function Button({ size, text, onClick }) {
-  return size === "small" ? (
+  return (size === "small")
+    ? 
     <SmallBtn onClick={onClick}>{text}</SmallBtn>
-  ) : size === "medium" ? (
+    :
     <MediumBtn onClick={onClick}>{text}</MediumBtn>
-  ) : (
-    <LargeBtn onClick={onClick}>{text}</LargeBtn>
-  );
 }
 const SmallBtn = styled.button`
   border: none;
@@ -48,19 +45,5 @@ const MediumBtn = styled.button`
   }
   @media screen and (max-width: 960px) {
     width: 70%;
-  }
-`;
-const LargeBtn = styled.button`
-  border: none;
-  border-radius: 0.5;
-  padding: 0.5rem;
-  font-size: 1.3rem;
-  width: auto;
-  background-color: ${pallete.cyan};
-  color: ${pallete.white};
-  text-align: center;
-  font-weight: 700;
-  &:hover {
-    cursor: pointer;
   }
 `;

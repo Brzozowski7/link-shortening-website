@@ -28,10 +28,10 @@ export default function Footer() {
         })}
       </Menu>
       <SocialMediaContainer>
-        <img src={fbIcon} alt="fbIcon" />
-        <img src={igIcon} alt="igIcon" />
-        <img src={pinIcon} alt="pinIcon" />
-        <img src={twIcon} alt="twIcon" />
+        <img src={fbIcon} alt="fbIcon" loading="lazy"/>
+        <img src={igIcon} alt="igIcon" loading="lazy"/>
+        <img src={pinIcon} alt="pinIcon" loading="lazy"/>
+        <img src={twIcon} alt="twIcon" loading="lazy"/>
       </SocialMediaContainer>
     </FooterContainer>
   );

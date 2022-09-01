@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import bgMobile from "../images/bg-shorten-mobile.svg";
-import bgDesktop from "../images/bg-shorten-desktop.svg";
 import { pallete } from "../misc/pallete";
 import Button from "./Button";
 
@@ -12,6 +10,7 @@ export default function LinkShortener({ setLinkArr }) {
   const [nextLink, setNextLink] = useState("");
   const [errorActive, setErrorActive] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
   const handleChange = (e) => {
     setNextLink(e.target.value);
   };
@@ -66,17 +65,14 @@ const LinkShortenerContainer = styled.div`
   padding: 1.5rem 5.5rem;
   border-radius: 0.5rem;
   gap: 2rem;
-  background-image: url(${bgDesktop});
-  background-size: cover;
+  background-color: ${pallete.darkViolet};
   @media screen and (max-width: 960px) {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     width: 90%;
-    padding: 5rem 2rem;
+    padding: 2rem;
     border-radius: 1rem;
-    background-image: url(${bgMobile});
-    background-size: cover;
   }
 `;
 const InputContainer = styled.div`
