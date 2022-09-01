@@ -60,15 +60,14 @@ const LinkShortenerContainer = styled.div`
   margin-top: 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items:center;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  height: 8rem;
-  padding: 3rem 7rem;
-  background-image: url(${bgDesktop});
-  background-size: cover;
+  padding: 1.5rem 5.5rem;
   border-radius: 0.5rem;
   gap: 2rem;
+  background-image: url(${bgDesktop});
+  background-size: cover;
   @media screen and (max-width: 960px) {
     flex-direction: column;
     align-items: center;
@@ -81,7 +80,7 @@ const LinkShortenerContainer = styled.div`
   }
 `;
 const InputContainer = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: left;
