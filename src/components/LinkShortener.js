@@ -8,7 +8,7 @@ const linkRegex =
 
 export default function LinkShortener({ setLinkArr }) {
   const [nextLink, setNextLink] = useState("");
-  const [errorActive, setErrorActive] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
@@ -17,10 +17,10 @@ export default function LinkShortener({ setLinkArr }) {
   const shortenLink = async () => {
     if (nextLink === "") {
       setErrorMsg("Please add link");
-      setErrorActive(true);
+      setIsError(true);
     } else if (!nextLink.match(linkRegex)) {
       setErrorMsg("That's not a link");
-      setErrorActive(true);
+      setIsError(true);
     } else {
       const api = await fetch(
         `https://api.shrtco.de/v2/shorten?url=${nextLink}`
@@ -30,7 +30,7 @@ export default function LinkShortener({ setLinkArr }) {
         ...prev,
         { long: nextLink, short: data.result.full_short_link },
       ]);
-      setErrorActive(false);
+      setIsError(false);
       setNextLink("");
     }
   };
@@ -38,12 +38,12 @@ export default function LinkShortener({ setLinkArr }) {
     <LinkShortenerContainer>
       <InputContainer>
         <LinkInput
-          error={errorActive}
+          error={isError}
           value={nextLink}
           onChange={(e) => handleChange(e)}
           type="text"
         />
-        <ErrorMsgContainer>{errorActive ? errorMsg : ""}</ErrorMsgContainer>
+        <ErrorMsgContainer>{isError ? errorMsg : ""}</ErrorMsgContainer>
       </InputContainer>
       <Button
         size={"medium"}

@@ -3,10 +3,7 @@ import logo from "../images/logo-white.svg";
 import styled from "styled-components";
 import { pallete } from "../misc/pallete";
 import { menuItems } from "../misc/menuItems";
-import fbIcon from "../images/icon-facebook.svg";
-import igIcon from "../images/icon-instagram.svg";
-import pinIcon from "../images/icon-pinterest.svg";
-import twIcon from "../images/icon-twitter.svg";
+import { socialMediaList } from "../misc/socialMedia";
 export default function Footer() {
   return (
     <FooterContainer>
@@ -28,10 +25,9 @@ export default function Footer() {
         })}
       </Menu>
       <SocialMediaContainer>
-        <img src={fbIcon} alt="fbIcon" loading="lazy" />
-        <img src={igIcon} alt="igIcon" loading="lazy" />
-        <img src={pinIcon} alt="pinIcon" loading="lazy" />
-        <img src={twIcon} alt="twIcon" loading="lazy" />
+        {socialMediaList.map(item=>{
+          return <img src={item.icon} alt={item.alt} key={item.name}/>
+        })}
       </SocialMediaContainer>
     </FooterContainer>
   );
