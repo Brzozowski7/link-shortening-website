@@ -22,7 +22,6 @@ export default function ShortenedLink({ long, short, setLinkArr }) {
     setIsCopied(true);
   };
   const removeLink = () => {
-    console.log(short);
     setLinkArr((prev) =>
       prev.filter((item) => {
         return item.short !== short;

@@ -15,8 +15,6 @@ export default function MainSection() {
     const check = localStorage.getItem(`links`);
     if (check) {
       setLinkArr(JSON.parse(check));
-    } else {
-      return;
     }
   }, []);
   useEffect(() => {

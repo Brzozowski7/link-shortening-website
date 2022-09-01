@@ -26,7 +26,6 @@ export default function LinkShortener({ setLinkArr }) {
         `https://api.shrtco.de/v2/shorten?url=${nextLink}`
       );
       const data = await api.json();
-      console.log(data.result.full_short_link);
       setLinkArr((prev) => [
         ...prev,
         { long: nextLink, short: data.result.full_short_link },
