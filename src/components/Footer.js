@@ -25,8 +25,8 @@ export default function Footer() {
         })}
       </Menu>
       <SocialMediaContainer>
-        {socialMediaList.map(item=>{
-          return <img src={item.icon} alt={item.alt} key={item.name}/>
+        {socialMediaList.map((item) => {
+          return <img src={item.icon} alt={item.alt} key={item.name} />;
         })}
       </SocialMediaContainer>
     </FooterContainer>

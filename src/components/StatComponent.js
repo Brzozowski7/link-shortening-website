@@ -37,11 +37,11 @@ const ImgContainer = styled.div`
   position: absolute;
   width: 5rem;
   height: 5rem;
-  top: -2.7rem;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  transform: translateY(-110%);
   background-color: black;
   border-radius: 50%;
   display: flex;
