@@ -16,7 +16,7 @@ export default function Button({ size, text, onClick, clicked = false }) {
 }
 Button.propTypes = {
   size: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   onClick: PropTypes.func,
   clicked: PropTypes.bool,
 };

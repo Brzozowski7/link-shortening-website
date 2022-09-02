@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { pallete } from "../misc/pallete";
 import Button from "./Button";
 import PropTypes from "prop-types";
-
+import Loader from "./Loader";
 const linkRegex =
   /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
 
@@ -11,6 +11,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
   const [nextLink, setNextLink] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setNextLink(e.target.value);
@@ -23,12 +24,14 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
       setErrorMsg("That's not a link");
       setIsError(true);
     } else {
+      setIsLoading(true);
       const api = await fetch(
         `https://api.shrtco.de/v2/shorten?url=${nextLink}`
       );
       if (!api.ok) {
         setIsError(true);
         setErrorMsg(`An error has occured: ${api.status}`);
+        setIsLoading(false);
       } else {
         const data = await api.json();
         setLinkArr((prev) => [
@@ -39,6 +42,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
             short: data.result.full_short_link,
           },
         ]);
+        setIsLoading(false);
         setIsError(false);
         setNextLink("");
         scrollToLink();
@@ -58,7 +62,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
       </InputContainer>
       <Button
         size={"medium"}
-        text={"Shorten It !"}
+        text={isLoading ? <Loader /> : "Shorten It !"}
         onClick={() => shortenLink()}
       ></Button>
     </LinkShortenerContainer>
