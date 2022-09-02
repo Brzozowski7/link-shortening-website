@@ -8,6 +8,7 @@ import ShortenedLink from "./ShortenedLink";
 import StatComponent from "./StatComponent";
 import { statList } from "../misc/statList";
 import Button from "./Button";
+import { AnimatePresence } from "framer-motion";
 
 export default function MainSection() {
   const [linkArr, setLinkArr] = useState([]);
@@ -38,16 +39,19 @@ export default function MainSection() {
       </TopElement>
       <LinkShortenerContainer>
         <LinkShortener setLinkArr={setLinkArr} />
-        {linkArr.map((item) => {
-          return (
-            <ShortenedLink
-              setLinkArr={setLinkArr}
-              key={item.short}
-              long={item.long}
-              short={item.short}
-            />
-          );
-        })}
+        <AnimatePresence>
+          {linkArr.map((item) => {
+            return (
+              <ShortenedLink
+                setLinkArr={setLinkArr}
+                key={item.id}
+                id={item.id}
+                long={item.long}
+                short={item.short}
+              />
+            );
+          })}
+        </AnimatePresence>
       </LinkShortenerContainer>
       <StatisticsContainer>
         <h3>Advanced Statistics</h3>

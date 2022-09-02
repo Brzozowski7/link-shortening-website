@@ -4,7 +4,7 @@ import { pallete } from "../misc/pallete";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
-
+import { motion } from "framer-motion";
 const isLink = function (props, propName, componentName) {
   const regex =
     /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
@@ -15,7 +15,7 @@ const isLink = function (props, propName, componentName) {
     );
   }
 };
-export default function ShortenedLink({ long, short, setLinkArr }) {
+export default function ShortenedLink({ long, short, id, setLinkArr }) {
   const [isCopied, setIsCopied] = useState(false);
   const handleClick = () => {
     navigator.clipboard.writeText(short);
@@ -24,12 +24,17 @@ export default function ShortenedLink({ long, short, setLinkArr }) {
   const removeLink = () => {
     setLinkArr((prev) =>
       prev.filter((item) => {
-        return item.short !== short;
+        return item.id !== id;
       })
     );
   };
   return (
-    <ShortenedLinkContainer>
+    <ShortenedLinkContainer
+      as={motion.div}
+      initial={{ x: -1500, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: 1500, opacity: 0 }}
+    >
       <LinkToShorten>{long}</LinkToShorten>
       <ReadyLink>{short}</ReadyLink>
       <Button

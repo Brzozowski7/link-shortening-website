@@ -28,7 +28,11 @@ export default function LinkShortener({ setLinkArr }) {
       const data = await api.json();
       setLinkArr((prev) => [
         ...prev,
-        { long: nextLink, short: data.result.full_short_link },
+        {
+          id: prev.length === 0 ? 1 : prev[prev.length - 1].id + 1,
+          long: nextLink,
+          short: data.result.full_short_link,
+        },
       ]);
       setIsError(false);
       setNextLink("");
