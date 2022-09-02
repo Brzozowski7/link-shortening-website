@@ -23,7 +23,7 @@ Button.propTypes = {
 const SmallBtn = styled.button`
   border: none;
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   background-color: ${pallete.cyan};
   color: ${pallete.white};
   text-align: center;

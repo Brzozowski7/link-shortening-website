@@ -16,7 +16,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
     setNextLink(e.target.value);
   };
   const shortenLink = async () => {
-    if (nextLink === "") {
+    if (!nextLink) {
       setErrorMsg("Please add link");
       setIsError(true);
     } else if (!nextLink.match(linkRegex)) {
@@ -27,7 +27,6 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
         `https://api.shrtco.de/v2/shorten?url=${nextLink}`
       );
       if (!api.ok) {
-        console.log(api.status);
         setIsError(true);
         setErrorMsg(`An error has occured: ${api.status}`);
       } else {
@@ -50,7 +49,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
     <LinkShortenerContainer>
       <InputContainer>
         <LinkInput
-          error={isError}
+          isError={isError}
           value={nextLink}
           onChange={(e) => handleChange(e)}
           type="text"
@@ -100,7 +99,7 @@ const LinkInput = styled.input`
   padding: 0.5rem 0.5rem;
   font-size: 1rem;
   border: ${(props) =>
-    props.error
+    props.isError
       ? `2px solid ${pallete.red}`
       : `1px solid ${pallete.veryDarkViolet}`};
   border-radius: 0.5rem;

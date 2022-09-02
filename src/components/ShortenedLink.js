@@ -32,9 +32,10 @@ export default function ShortenedLink({ long, short, id, setLinkArr }) {
   return (
     <ShortenedLinkContainer
       as={motion.div}
-      initial={{ x: -1500, opacity: 0 }}
+      initial={{ x: "-100%", opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      exit={{ x: 1500, opacity: 0 }}
+      exit={{ x: " 100%", opacity: 0 }}
+      transition={{ duration: 1 }}
     >
       <LinkToShorten>{long}</LinkToShorten>
       <ReadyLink onClick={() => handleClick()}>{short}</ReadyLink>

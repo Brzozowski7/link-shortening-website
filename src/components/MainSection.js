@@ -54,7 +54,7 @@ export default function MainSection() {
               />
             );
           })}
-          {/* div to scroll after new ShortenedLink is rendered */}
+          {/* div to scroll to after new ShortenedLink is rendered */}
           <div ref={ref}></div>
         </AnimatePresence>
       </LinkShortenerContainer>
