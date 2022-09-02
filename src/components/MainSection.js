@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import mainImage from "../images/illustration-working.svg";
 import bgBottom from "../images/bg-shorten-mobile.svg";
@@ -12,6 +12,7 @@ import { AnimatePresence } from "framer-motion";
 
 export default function MainSection() {
   const [linkArr, setLinkArr] = useState([]);
+  const ref = useRef(null);
   useEffect(() => {
     const check = localStorage.getItem(`links`);
     if (check) {
@@ -21,7 +22,9 @@ export default function MainSection() {
   useEffect(() => {
     localStorage.setItem("links", JSON.stringify(linkArr));
   }, [linkArr]);
-
+  const scrollToLink = () => {
+    ref.current.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+  };
   return (
     <Main>
       <TopElement>
@@ -38,7 +41,7 @@ export default function MainSection() {
         </InformationContainer>
       </TopElement>
       <LinkShortenerContainer>
-        <LinkShortener setLinkArr={setLinkArr} />
+        <LinkShortener scrollToLink={scrollToLink} setLinkArr={setLinkArr} />
         <AnimatePresence>
           {linkArr.map((item) => {
             return (
@@ -51,6 +54,8 @@ export default function MainSection() {
               />
             );
           })}
+          {/* div to scroll after new ShortenedLink is rendered */}
+          <div ref={ref}></div>
         </AnimatePresence>
       </LinkShortenerContainer>
       <StatisticsContainer>

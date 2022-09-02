@@ -6,7 +6,7 @@ import Button from "./Button";
 const linkRegex =
   /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
 
-export default function LinkShortener({ setLinkArr }) {
+export default function LinkShortener({ setLinkArr, scrollToLink }) {
   const [nextLink, setNextLink] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -36,6 +36,7 @@ export default function LinkShortener({ setLinkArr }) {
       ]);
       setIsError(false);
       setNextLink("");
+      scrollToLink();
     }
   };
   return (
