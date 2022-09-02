@@ -21,8 +21,6 @@ const Wrapper = styled.div`
   allign-items: center;
   width: 100vw;
   height: 100vh;
-  position: relative;
   overflow-x: hidden;
-  position: relative;
   font-family: "Poppins", sans-serif;
 `;

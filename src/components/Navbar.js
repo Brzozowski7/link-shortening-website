@@ -74,10 +74,9 @@ const NavbarContainer = styled.nav`
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    height: 90%;
-    width: 90vw;
+    height: 100%;
+    width: 100vw;
     background-color: ${pallete.darkViolet};
-    border-radius: 1rem;
     padding: 4rem 0;
     font-size: 1.5rem;
     font-weight: 700;
@@ -118,6 +117,7 @@ const AuthOptions = styled.div`
   gap: 2rem;
   @media screen and (max-width: 960px) {
     height: 40%;
+    gap:0;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
