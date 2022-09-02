@@ -117,7 +117,7 @@ const AuthOptions = styled.div`
   gap: 2rem;
   @media screen and (max-width: 960px) {
     height: 40%;
-    gap:0;
+    gap: 0;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;

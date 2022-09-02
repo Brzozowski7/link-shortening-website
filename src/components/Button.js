@@ -18,6 +18,7 @@ Button.propTypes = {
   size: PropTypes.string,
   text: PropTypes.string,
   onClick: PropTypes.func,
+  clicked: PropTypes.bool,
 };
 const SmallBtn = styled.button`
   border: none;

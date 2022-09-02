@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { pallete } from "../misc/pallete";
 import Button from "./Button";
+import PropTypes from "prop-types";
 
 const linkRegex =
   /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
@@ -64,7 +65,10 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
     </LinkShortenerContainer>
   );
 }
-
+LinkShortener.propTypes = {
+  setLinkArr: PropTypes.func,
+  scrollToLink: PropTypes.func,
+};
 const LinkShortenerContainer = styled.div`
   margin-top: 2rem;
   display: flex;
