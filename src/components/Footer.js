@@ -71,6 +71,9 @@ const MenuElement = styled.div`
   flex-direction: column;
   gap: 1rem;
   text-align: center;
+  p:hover {
+    cursor: pointer;
+  }
 `;
 const List = styled.ul`
   color: ${pallete.grayishViolet};

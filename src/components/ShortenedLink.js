@@ -36,8 +36,9 @@ export default function ShortenedLink({ long, short, id, setLinkArr }) {
       exit={{ x: 1500, opacity: 0 }}
     >
       <LinkToShorten>{long}</LinkToShorten>
-      <ReadyLink>{short}</ReadyLink>
+      <ReadyLink onClick={() => handleClick()}>{short}</ReadyLink>
       <Button
+        clicked={isCopied}
         size={"medium"}
         text={isCopied ? "Copied !" : "Copy !"}
         onClick={() => handleClick()}
@@ -88,6 +89,9 @@ const LinkToShorten = styled.div`
 const ReadyLink = styled.div`
   width: 50%;
   color: ${pallete.cyan};
+  &:hover {
+    cursor: pointer;
+  }
   @media screen and (max-width: 960px) {
     width: 70%;
   }

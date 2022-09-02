@@ -25,18 +25,24 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
       const api = await fetch(
         `https://api.shrtco.de/v2/shorten?url=${nextLink}`
       );
-      const data = await api.json();
-      setLinkArr((prev) => [
-        ...prev,
-        {
-          id: prev.length === 0 ? 1 : prev[prev.length - 1].id + 1,
-          long: nextLink,
-          short: data.result.full_short_link,
-        },
-      ]);
-      setIsError(false);
-      setNextLink("");
-      scrollToLink();
+      if (!api.ok) {
+        console.log(api.status);
+        setIsError(true);
+        setErrorMsg(`An error has occured: ${api.status}`);
+      } else {
+        const data = await api.json();
+        setLinkArr((prev) => [
+          ...prev,
+          {
+            id: prev.length === 0 ? 1 : prev[prev.length - 1].id + 1,
+            long: nextLink,
+            short: data.result.full_short_link,
+          },
+        ]);
+        setIsError(false);
+        setNextLink("");
+        scrollToLink();
+      }
     }
   };
   return (

@@ -3,11 +3,15 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { pallete } from "../misc/pallete";
 
-export default function Button({ size, text, onClick }) {
+export default function Button({ size, text, onClick, clicked = false }) {
   return size === "small" ? (
-    <SmallBtn onClick={onClick}>{text}</SmallBtn>
+    <SmallBtn clicked={clicked} onClick={onClick}>
+      {text}
+    </SmallBtn>
   ) : (
-    <MediumBtn onClick={onClick}>{text}</MediumBtn>
+    <MediumBtn clicked={clicked} onClick={onClick}>
+      {text}
+    </MediumBtn>
   );
 }
 Button.propTypes = {
@@ -38,7 +42,8 @@ const MediumBtn = styled.button`
   width: 13rem;
   height: 3rem;
   font-size: 1.3rem;
-  background-color: ${pallete.cyan};
+  background-color: ${(props) =>
+    props.clicked ? `${pallete.darkerCyan}` : `${pallete.cyan}`};
   color: ${pallete.white};
   text-align: center;
   font-weight: 700;
