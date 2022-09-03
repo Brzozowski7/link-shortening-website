@@ -23,7 +23,7 @@ export default function MainSection() {
     localStorage.setItem("links", JSON.stringify(linkArr));
   }, [linkArr]);
   const scrollToLink = () => {
-    ref.current.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+    ref.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <Main>
