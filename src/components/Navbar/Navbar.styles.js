@@ -1,47 +1,7 @@
-import React, { useState } from "react";
 import styled from "styled-components";
-import logo from "../images/logo.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import { menuItems } from "../misc/menuItems";
-import { pallete } from "../misc/pallete";
-import Button from "./Button";
+import { pallete } from "../../misc/pallete";
 
-export default function Navbar() {
-  const [isActive, setIsActive] = useState(false);
-
-  return (
-    <Header>
-      <LogoContainer width="200px">
-        <img src={logo} alt="logo" />
-      </LogoContainer>
-      <NavbarContainer open={isActive}>
-        <Menu>
-          {menuItems.map((item) => {
-            return (
-              <li key={item.name}>
-                <a href={item.href}>{item.name}</a>
-              </li>
-            );
-          })}
-        </Menu>
-        <AuthOptions>
-          <Login>Login</Login>
-          <Button size={"small"} text={"Register"}></Button>
-        </AuthOptions>
-      </NavbarContainer>
-      <MenuIconContainer onClick={() => setIsActive((prev) => !prev)}>
-        {isActive ? (
-          <FontAwesomeIcon icon={faX} size="2xl" />
-        ) : (
-          <FontAwesomeIcon icon={faBars} size="2xl" />
-        )}
-      </MenuIconContainer>
-    </Header>
-  );
-}
-
-const Header = styled.header`
+export const Header = styled.header`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -50,15 +10,16 @@ const Header = styled.header`
   padding: 3rem 5rem;
   justify-content: space-between;
   @media screen and (max-width: 960px) {
-    padding: 2rem 2rem;
+    padding: 2rem;
   }
 `;
-const LogoContainer = styled.div`
+export const LogoContainer = styled.div`
+  width: 12.5rem;
   img {
     vertical-align: middle;
   }
 `;
-const NavbarContainer = styled.nav`
+export const NavbarContainer = styled.nav`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -82,7 +43,7 @@ const NavbarContainer = styled.nav`
     font-weight: 700;
   }
 `;
-const Menu = styled.ul`
+export const Menu = styled.ul`
   display: flex;
   flex-direction: row;
   li {
@@ -111,7 +72,7 @@ const Menu = styled.ul`
     }
   }
 `;
-const AuthOptions = styled.div`
+export const AuthOptions = styled.div`
   display: flex;
   flex-direction: row;
   gap: 2rem;
@@ -123,7 +84,7 @@ const AuthOptions = styled.div`
     justify-content: space-around;
   }
 `;
-const Login = styled.div`
+export const Login = styled.div`
   padding: 0.5rem;
   color: ${pallete.grayishViolet};
   &:hover {
@@ -133,7 +94,7 @@ const Login = styled.div`
     color: ${pallete.white};
   }
 `;
-const MenuIconContainer = styled.div`
+export const MenuIconContainer = styled.div`
   display: none;
   @media screen and (max-width: 960px) {
     display: inline-block;

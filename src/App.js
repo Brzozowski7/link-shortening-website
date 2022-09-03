@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Footer from "./components/Footer";
-import MainSection from "./components/MainSection";
-import Navbar from "./components/Navbar";
+import MainSection from "./components/MainSection/MainSection";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
