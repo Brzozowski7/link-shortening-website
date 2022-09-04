@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   LinkShortenerContainer,
@@ -11,43 +11,62 @@ import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
 import { buttonSize } from "../Button/Button.styles";
 
-export default function LinkShortener({ setLinkArr, scrollToLink }) {
+export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
   const [nextLink, setNextLink] = useState("");
+  const [fetchedLink, setFetchedLink] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const checkLink = () => {
+    if (!nextLink) {
+      setErrorMsg("Please add link");
+      return false;
+    } else if (!nextLink.match(linkRegex)) {
+      setErrorMsg("That's not a link");
+      return false;
+    } else if (linkArr.some((item) => item.long === nextLink)) {
+      setErrorMsg(
+        "You've already shortened this link. Please check links listed below."
+      );
+      return false;
+    } else return true;
+  };
+  const fetchLink = async () => {
+    setIsLoading(true);
+    await fetch(`https://api.shrtco.de/v2/shorten?url=${nextLink}`)
+      .then((response) => console.log(response))
+      .then((response) => response.json())
+      .then((data) => {
+        setFetchedLink(data.result.short_link);
+        scrollToLink();
+        setErrorMsg("");
+      })
+      .catch((err) => setErrorMsg(`An error has occured: ${err}`));
+    setIsLoading(false);
+  };
   const handleChange = (e) => {
     setNextLink(e.target.value);
   };
+
   const shortenLink = async () => {
-    if (!nextLink) {
-      setErrorMsg("Please add link");
-    } else if (!nextLink.match(linkRegex)) {
-      setErrorMsg("That's not a link");
-    } else {
-      setIsLoading(true);
-      const response = await fetch(
-        `https://api.shrtco.de/v2/shorten?url=${nextLink}`
-      );
-      if (!response.ok) {
-        setErrorMsg(`An error has occured: ${response.status}`);
-        setIsLoading(false);
-      } else {
-        const data = await response.json();
-        setLinkArr((prev) => [
-          ...prev,
-          {
-            id: prev.length === 0 ? 1 : prev[prev.length - 1].id + 1,
-            long: nextLink,
-            short: data.result.full_short_link,
-          },
-        ]);
-        setIsLoading(false);
-        setNextLink("");
-        scrollToLink();
-      }
+    setErrorMsg("");
+    if (checkLink()) {
+      await fetchLink();
     }
   };
+
+  useEffect(() => {
+    setLinkArr((prev) => [
+      ...prev,
+      {
+        id: prev.length === 0 ? 1 : prev[prev.length - 1].id + 1,
+        long: nextLink,
+        short: fetchedLink,
+      },
+    ]);
+    setNextLink("");
+  }, [fetchedLink]);
+
   return (
     <LinkShortenerContainer>
       <InputContainer>

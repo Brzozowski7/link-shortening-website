@@ -49,7 +49,7 @@ export default function MainSection() {
         </InformationContainer>
       </TopElement>
       <LinkShortenerContainer>
-        <LinkShortener scrollToLink={scrollToLink} setLinkArr={setLinkArr} />
+        <LinkShortener scrollToLink={scrollToLink} setLinkArr={setLinkArr} linkArr={linkArr} />
         <AnimatePresence>
           {linkArr.map((item) => {
             return (
