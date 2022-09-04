@@ -38,7 +38,6 @@ export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
       .then((data) => {
         setFetchedLink(data.result.short_link);
         scrollToLink();
-        setErrorMsg("");
       })
       .catch((err) => setErrorMsg(`An error has occured: ${err}`));
     setIsLoading(false);
@@ -63,6 +62,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
         short: fetchedLink,
       },
     ]);
+    setErrorMsg("");
     setNextLink("");
   }, [fetchedLink]);
 

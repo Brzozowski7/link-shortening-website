@@ -12,7 +12,6 @@ export const LinkShortenerContainer = styled.div`
   border-radius: 0.5rem;
   gap: 2rem;
   background-color: ${pallete.darkViolet};
-  position: relative;
   @media screen and (max-width: 960px) {
     flex-direction: column;
     align-items: center;
@@ -41,6 +40,4 @@ export const LinkInput = styled.input`
 export const ErrorMsgContainer = styled.div`
   color: ${pallete.red};
   font-style: italic;
-  position: absolute;
-  transform: translateY(150%);
 `;
