@@ -1,4 +1,4 @@
-import PropTypes, { object } from "prop-types";
+import PropTypes from "prop-types";
 import { buttonSize, SmallBtn, MediumBtn } from "./Button.styles.js";
 
 export default function Button({ size, text, onClick, clicked = false }) {
