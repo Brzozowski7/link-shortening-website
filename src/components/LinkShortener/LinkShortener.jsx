@@ -34,7 +34,6 @@ export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
   const fetchLink = async () => {
     setIsLoading(true);
     await fetch(`https://api.shrtco.de/v2/shorten?url=${nextLink}`)
-      .then((response) => console.log(response))
       .then((response) => response.json())
       .then((data) => {
         setFetchedLink(data.result.short_link);
