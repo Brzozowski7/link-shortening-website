@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import {
   Header,
   LogoContainer,
@@ -8,11 +10,9 @@ import {
   Login,
   MenuIconContainer,
 } from "./Navbar.styles";
-import Button from "../Button/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import Button from "../Button";
 import { menuItems } from "../../misc/menuItems";
-import { buttonSize } from "../Button/Button.styles";
+import { buttonSize } from "../Button/Button.const";
 import logo from "../../images/logo.svg";
 
 export default function Navbar() {

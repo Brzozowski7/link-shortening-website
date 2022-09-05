@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import {
   ShortenedLinkContainer,
   LinkToShorten,
@@ -8,10 +10,8 @@ import {
   IconContainer,
 } from "./ShortenedLink.styles";
 import { isLink } from "./ShortenedLink.utils";
-import Button from "../Button/Button";
-import { buttonSize } from "../Button/Button.styles";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import Button from "../Button";
+import { buttonSize } from "../Button/Button.const";
 
 export default function ShortenedLink({ long, short, id, setLinkArr }) {
   const [isCopied, setIsCopied] = useState(false);

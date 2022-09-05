@@ -1,7 +1,7 @@
 import { Wrapper } from "./App.styles";
-import MainSection from "../components/MainSection/MainSection";
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
+import MainSection from "../components/MainSection";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function App() {
   return (

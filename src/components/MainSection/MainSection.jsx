@@ -10,11 +10,11 @@ import {
   StatComponentsContainer,
   BottomElement,
 } from "./MainSection.styles";
-import Button from "../Button/Button";
-import { buttonSize } from "../Button/Button.styles";
-import ShortenedLink from "../ShortenedLink/ShortenedLink";
-import LinkShortener from "../LinkShortener/LinkShortener";
-import StatComponent from "../StatComponent/StatComponent";
+import Button from "../Button";
+import { buttonSize } from "../Button/Button.const";
+import ShortenedLink from "../ShortenedLink";
+import LinkShortener from "../LinkShortener";
+import StatComponent from "../StatComponent";
 import { statList } from "../../misc/statList";
 import mainImage from "../../images/illustration-working.svg";
 
@@ -49,7 +49,11 @@ export default function MainSection() {
         </InformationContainer>
       </TopElement>
       <LinkShortenerContainer>
-        <LinkShortener scrollToLink={scrollToLink} setLinkArr={setLinkArr} linkArr={linkArr} />
+        <LinkShortener
+          scrollToLink={scrollToLink}
+          setLinkArr={setLinkArr}
+          linkArr={linkArr}
+        />
         <AnimatePresence>
           {linkArr.map((item) => {
             return (

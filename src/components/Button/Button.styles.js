@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { pallete } from "../../misc/pallete";
 
-const buttonSize = {
-  small: "small",
-  medium: "medium",
-};
-
-export { buttonSize };
 const BtnBase = styled.button`
   border: none;
   background-color: ${(props) =>

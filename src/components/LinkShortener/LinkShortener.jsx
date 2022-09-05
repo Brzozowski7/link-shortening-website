@@ -7,9 +7,9 @@ import {
   ErrorMsgContainer,
 } from "./LinkShortener.styles";
 import { linkRegex } from "./LinkShortener.const";
-import Button from "../Button/Button";
-import Loader from "../Loader/Loader";
-import { buttonSize } from "../Button/Button.styles";
+import Button from "../Button";
+import Loader from "../Loader";
+import { buttonSize } from "../Button/Button.const";
 
 export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
   const [nextLink, setNextLink] = useState("");
@@ -46,10 +46,10 @@ export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
     setNextLink(e.target.value);
   };
 
-  const shortenLink = async () => {
+  const shortenLink = () => {
     setErrorMsg("");
     if (checkLink()) {
-      await fetchLink();
+      fetchLink();
     }
   };
 
@@ -88,4 +88,5 @@ export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
 LinkShortener.propTypes = {
   setLinkArr: PropTypes.func,
   scrollToLink: PropTypes.func,
+  linkArr: PropTypes.array,
 };

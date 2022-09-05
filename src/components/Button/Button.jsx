@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import { buttonSize, SmallBtn, MediumBtn } from "./Button.styles.js";
-
+import { SmallBtn, MediumBtn } from "./Button.styles.js";
+import { buttonSize } from "./Button.const.js";
 export default function Button({ size, text, onClick, clicked = false }) {
-  return size === "small" ? (
+  return size === buttonSize.small ? (
     <SmallBtn clicked={clicked} onClick={onClick}>
       {text}
     </SmallBtn>
