@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { FormattedMessage } from "react-intl";
 import { StatContainer, ImgContainer } from "./StatComponent.styles";
 
 export default function StatComponent({ name, image, content }) {

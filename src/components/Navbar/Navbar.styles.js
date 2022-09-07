@@ -107,13 +107,13 @@ export const LanguagesContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   img {
-    height:1rem;
+    height: 1rem;
     border-radius: 0.2rem;
     &:hover {
       cursor: pointer;
     }
   }
   @media screen and (max-width: 960px) {
-    justify-content: center;
+    width: 10rem;
   }
 `;
