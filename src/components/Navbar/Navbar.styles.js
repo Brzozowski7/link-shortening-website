@@ -63,7 +63,6 @@ export const Menu = styled.ul`
     justify-content: space-around;
     height: 60%;
     width: 100%;
-    border-bottom: 1px ${pallete.gray} solid;
     a {
       color: ${pallete.white};
     }
@@ -98,5 +97,23 @@ export const MenuIconContainer = styled.div`
   display: none;
   @media screen and (max-width: 960px) {
     display: inline-block;
+  }
+`;
+
+export const LanguagesContainer = styled.div`
+  width: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    height:1rem;
+    border-radius: 0.2rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 960px) {
+    justify-content: center;
   }
 `;

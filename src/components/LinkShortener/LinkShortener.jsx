@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
 import {
   LinkShortenerContainer,
   InputContainer,
@@ -79,7 +80,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
       </InputContainer>
       <Button
         size={buttonSize.medium}
-        text={isLoading ? <Loader /> : "Shorten It !"}
+      text={isLoading ? <Loader /> : <FormattedMessage id="linkShortener.shortenItBtn" defaultMessage="Shorten It !"/>}
         onClick={() => shortenLink()}
       ></Button>
     </LinkShortenerContainer>

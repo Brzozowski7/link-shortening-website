@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -44,7 +45,7 @@ export default function ShortenedLink({ long, short, id, setLinkArr }) {
       <Button
         clicked={isCopied}
         size={buttonSize.medium}
-        text={isCopied ? "Copied !" : "Copy !"}
+        text={isCopied ? <FormattedMessage id="shortenedLink.copiedBtn" defaultMessage="Copied"/> : <FormattedMessage id="shortenedLink.copyBtn" defaultMessage="Copy"/>}
         onClick={handleClick}
       ></Button>
       <IconContainer>

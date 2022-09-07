@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
 import { StatContainer, ImgContainer } from "./StatComponent.styles";
 
 export default function StatComponent({ name, image, content }) {
@@ -14,7 +15,7 @@ export default function StatComponent({ name, image, content }) {
 }
 
 StatComponent.propTypes = {
-  name: PropTypes.string,
-  content: PropTypes.string,
+  name: PropTypes.object,
+  content: PropTypes.object,
   image: PropTypes.string,
 };

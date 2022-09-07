@@ -1,3 +1,4 @@
+import { FormattedMessage } from "react-intl";
 import {
   FooterContainer,
   LogoContainer,
@@ -22,7 +23,7 @@ export default function Footer() {
               <p key={index}>{item.name}</p>
               <List>
                 {item.items.map((option, id) => {
-                  return <li key={id}>{option}</li>;
+                  return <li key={id}><FormattedMessage id={option.id} defaultMessage={option.name}/></li>;
                 })}
               </List>
             </MenuElement>

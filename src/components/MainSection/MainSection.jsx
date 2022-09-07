@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
+import { FormattedMessage } from "react-intl";
 import {
   Main,
   TopElement,
@@ -40,12 +41,27 @@ export default function MainSection() {
           <img src={mainImage} alt="main" />
         </ImageContainer>
         <InformationContainer>
-          <h2>More than just shorter links</h2>
+          <h2>
+            <FormattedMessage
+              id="mainSection.title"
+              defaultMessage="More than just shorter links"
+            />
+          </h2>
           <p>
-            Build your brand's recognition and get detailed insights on how your
-            links are performing.
+            <FormattedMessage
+              id="mainSection.description"
+              defaultMessage="Build your brand's recognition and get detailed insights on how your links are performing."
+            />
           </p>
-          <Button size={buttonSize.medium} text={"Get Started"}></Button>
+          <Button
+            size={buttonSize.medium}
+            text={
+              <FormattedMessage
+                id="mainSection.getStartedBtn"
+                defaultMessage="Get Started"
+              />
+            }
+          ></Button>
         </InformationContainer>
       </TopElement>
       <LinkShortenerContainer>
@@ -71,27 +87,57 @@ export default function MainSection() {
         </AnimatePresence>
       </LinkShortenerContainer>
       <StatisticsContainer>
-        <h3>Advanced Statistics</h3>
+        <h3>
+          <FormattedMessage
+            id="mainSection.StatiscticsTitle"
+            defaultMessage="Advanced Statistics"
+          />
+        </h3>
         <p>
-          Track how your links are performing across the web with our advanced
-          statistics dashboard.
+          <FormattedMessage
+            id="mainSection.StatiscticsDescription"
+            defaultMessage="Track how your links are performing across the web with our advanced statistics dashboard."
+          />
         </p>
         <StatComponentsContainer>
           {statList.map((item) => {
             return (
               <StatComponent
                 key={item.name}
-                name={item.name}
+                name={
+                  <FormattedMessage
+                    id={item.nameId}
+                    defaultMessage={item.name}
+                  />
+                }
                 image={item.image}
-                content={item.content}
+                content={
+                  <FormattedMessage
+                    id={item.contentId}
+                    defaultMessage={item.content}
+                  />
+                }
               />
             );
           })}
         </StatComponentsContainer>
       </StatisticsContainer>
       <BottomElement>
-        <h2>Boost your links today</h2>
-        <Button size={buttonSize.medium} text={"Get Started"}></Button>
+        <h2>
+          <FormattedMessage
+            id="mainSection.bottomElementText"
+            defaultMessage="Boost your links today"
+          />
+        </h2>
+        <Button
+          size={buttonSize.medium}
+          text={
+            <FormattedMessage
+              id="mainSection.getStartedBtn"
+              defaultMessage="Get Started"
+            />
+          }
+        ></Button>
       </BottomElement>
     </Main>
   );

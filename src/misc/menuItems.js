@@ -1,18 +1,34 @@
 const menuItems = [
   {
     name: "Features",
+    id: "navbar.features",
     href: "#",
-    items: ["Link Shortening", "Branded Links", "Analitycs"],
+    items: [
+      { name: "Link Shortening", id: "footer.linkShortening" },
+      { name: "Branded Links", id: "footer.brandedLinks" },
+      { name: "Analytics", id: "footer.analytics" },
+    ],
   },
   {
     name: "Pricing",
+    id: "navbar.pricing",
     href: "#",
-    items: ["Blog", "Developers", "Support"],
+    items: [
+      { name: "Blog", id: "footer.blog" },
+      { name: "Developers", id: "footer.developers" },
+      { name: "Suport", id: "footer.support" },
+    ],
   },
   {
     name: "Resources",
+    id: "navbar.resources",
     href: "#",
-    items: ["About", "Our Team", "Carrers", "Contact"],
+    items: [
+      { name: "About", id: "footer.about" },
+      { name: "Our Team", id: "footer.ourTeam" },
+      { name: "Careers", id: "footer.carrers" },
+      { name: "Contact", id: "footer.contact" },
+    ],
   },
 ];
 export { menuItems };
