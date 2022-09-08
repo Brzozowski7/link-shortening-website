@@ -10,7 +10,11 @@ function App() {
   const [language, setLanguage] = useState("");
 
   return (
-    <IntlProvider messages={messages[language]} locale="en" defaultLocale="en">
+    <IntlProvider
+      messages={messages[language]}
+      locale={language}
+      defaultLocale="en"
+    >
       <Wrapper>
         <Navbar setLanguage={setLanguage} />
         <MainSection />

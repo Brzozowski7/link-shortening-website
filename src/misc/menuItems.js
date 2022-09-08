@@ -26,7 +26,7 @@ const menuItems = [
     items: [
       { name: "About", id: "footer.about" },
       { name: "Our Team", id: "footer.ourTeam" },
-      { name: "Careers", id: "footer.carrers" },
+      { name: "Careers", id: "footer.careers" },
       { name: "Contact", id: "footer.contact" },
     ],
   },

@@ -40,7 +40,7 @@ export default function Navbar({ setLanguage }) {
           })}
         </Menu>
         <LanguagesContainer>
-          {languages?.map((item) => {
+          {languages.map((item) => {
             return (
               <img
                 onClick={() => setLanguage(item.alt)}

@@ -80,7 +80,16 @@ export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
       </InputContainer>
       <Button
         size={buttonSize.medium}
-      text={isLoading ? <Loader /> : <FormattedMessage id="linkShortener.shortenItBtn" defaultMessage="Shorten It !"/>}
+        text={
+          isLoading ? (
+            <Loader />
+          ) : (
+            <FormattedMessage
+              id="linkShortener.shortenItBtn"
+              defaultMessage="Shorten It !"
+            />
+          )
+        }
         onClick={() => shortenLink()}
       ></Button>
     </LinkShortenerContainer>
@@ -89,5 +98,6 @@ export default function LinkShortener({ setLinkArr, scrollToLink, linkArr }) {
 LinkShortener.propTypes = {
   setLinkArr: PropTypes.func,
   scrollToLink: PropTypes.func,
+  fetchedLink: PropTypes.string,
   linkArr: PropTypes.array,
 };
