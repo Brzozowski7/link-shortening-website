@@ -16,6 +16,7 @@ import { buttonSize } from "../Button/Button.const";
 
 export default function ShortenedLink({ long, short, id, setLinkArr }) {
   const [isCopied, setIsCopied] = useState(false);
+  
   const handleClick = () => {
     navigator.clipboard
       .writeText(short)
@@ -25,6 +26,7 @@ export default function ShortenedLink({ long, short, id, setLinkArr }) {
       setIsCopied((prev) => !prev);
     }, 5000);
   };
+
   const removeLink = () => {
     setLinkArr((prev) =>
       prev.filter((item) => {
@@ -32,6 +34,7 @@ export default function ShortenedLink({ long, short, id, setLinkArr }) {
       })
     );
   };
+
   return (
     <ShortenedLinkContainer
       as={motion.div}

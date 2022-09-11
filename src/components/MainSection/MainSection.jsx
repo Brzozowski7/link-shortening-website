@@ -11,6 +11,7 @@ import {
   StatComponentsContainer,
   BottomElement,
 } from "./MainSection.styles";
+import useLocalStorage from "./useLocalStorage";
 import Button from "../Button";
 import { buttonSize } from "../Button/Button.const";
 import ShortenedLink from "../ShortenedLink";
@@ -21,19 +22,24 @@ import mainImage from "../../images/illustration-working.svg";
 
 export default function MainSection() {
   const [linkArr, setLinkArr] = useState([]);
+  const [localStorageLinks, setLocalStorageLinks] = useLocalStorage(
+    "links",
+    ""
+  );
   const ref = useRef(null);
+
   useEffect(() => {
-    const checkLinksFromBefore = localStorage.getItem(`links`);
-    if (checkLinksFromBefore) {
-      setLinkArr(JSON.parse(checkLinksFromBefore));
-    }
+    setLinkArr(localStorageLinks);
   }, []);
+
   useEffect(() => {
-    localStorage.setItem("links", JSON.stringify(linkArr));
+    setLocalStorageLinks(linkArr);
   }, [linkArr]);
+
   const scrollToLink = () => {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
     <Main>
       <TopElement>
@@ -65,11 +71,7 @@ export default function MainSection() {
         </InformationContainer>
       </TopElement>
       <LinkShortenerContainer>
-        <LinkShortener
-          scrollToLink={scrollToLink}
-          setLinkArr={setLinkArr}
-          linkArr={linkArr}
-        />
+        <LinkShortener scrollToLink={scrollToLink} setLinkArr={setLinkArr} />
         <AnimatePresence>
           {linkArr.map((item) => {
             return (
