@@ -16,7 +16,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
   const [nextLink, setNextLink] = useState({ value: "" });
   const isMounted = useRef(false);
   const inputRef = useRef(null);
-  const { shortLink, loading, error, newLink } = useFetchLink(nextLink);
+  const { shortLink, loading, error, refresh } = useFetchLink(nextLink);
 
   const handleClick = () => {
     setNextLink({ value: inputRef.current.value }); //zrobiłem obiekt z nextLinka żeby link był skracany nawet w momencie kiedy poprzedni input był taki sam
@@ -37,7 +37,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
       isMounted.current = true;
     }
     inputRef.current.value = "";
-  }, [newLink]);
+  }, [refresh]);
 
   return (
     <LinkShortenerContainer>

@@ -5,19 +5,19 @@ const useFetchLink = (linkToShorten) => {
   const [shortLink, setShortLink] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [newLink, setNewLink] = useState(false); // dodany po to, żeby w momencie jak api zwraca ten sam link kolejny shortenedLink był komponowany (czekam na inne propozycje :D )
+  const [refresh, setRefresh] = useState(false); // dodany po to, żeby w momencie jak api zwraca ten sam link kolejny shortenedLink był komponowany (czekam na bardziej sensowne propozycje :D )
   const isMounted = useRef(false);
 
-  const fetchLink = async () => {
+  const fetchLink = async (link) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://api.shrtco.de/v2/shorten?url=${linkToShorten.value}`
+        `https://api.shrtco.de/v2/shorten?url=${link}`
       );
       if (response.ok) {
         const data = await response.json();
         setShortLink(data.result.short_link);
-        setNewLink((prev) => !prev);
+        setRefresh((prev) => !prev);
       } else {
         throw response.status;
       }
@@ -40,7 +40,7 @@ const useFetchLink = (linkToShorten) => {
     }
   }, [linkToShorten]);
 
-  const value = { shortLink, loading, error, newLink };
+  const value = { shortLink, loading, error, refresh };
   return value;
 };
 
