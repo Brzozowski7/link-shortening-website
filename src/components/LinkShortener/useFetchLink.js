@@ -5,7 +5,7 @@ const useFetchLink = (linkToShorten) => {
   const [shortLink, setShortLink] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [newLink, setNewLink] = useState(false);
+  const [newLink, setNewLink] = useState(false); // dodany po to, żeby w momencie jak api zwraca ten sam link kolejny shortenedLink był komponowany (czekam na inne propozycje :D )
   const isMounted = useRef(false);
 
   const fetchLink = async () => {

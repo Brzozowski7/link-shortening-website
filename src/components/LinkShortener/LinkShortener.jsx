@@ -19,7 +19,7 @@ export default function LinkShortener({ setLinkArr, scrollToLink }) {
   const { shortLink, loading, error, newLink } = useFetchLink(nextLink);
 
   const handleClick = () => {
-    setNextLink({ value: inputRef.current.value });
+    setNextLink({ value: inputRef.current.value }); //zrobiłem obiekt z nextLinka żeby link był skracany nawet w momencie kiedy poprzedni input był taki sam
   };
 
   useEffect(() => {

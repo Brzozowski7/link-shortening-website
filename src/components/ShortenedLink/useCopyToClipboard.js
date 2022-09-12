@@ -14,7 +14,6 @@ const useCopyToClipboard = () => {
     } catch (error) {
       console.log(error);
       setCopied(null);
-      return false;
     }
   };
 
