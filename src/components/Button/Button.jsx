@@ -16,5 +16,5 @@ Button.propTypes = {
   size: PropTypes.oneOf(Object.values(buttonSize)),
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   onClick: PropTypes.func,
-  clicked: PropTypes.bool,
+  clicked: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 };
