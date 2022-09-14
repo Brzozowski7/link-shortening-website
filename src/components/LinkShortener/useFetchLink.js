@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import { checkLink } from "./LinkShortener.utils";
 
 const useFetchLink = (linkToShorten) => {
@@ -10,15 +11,10 @@ const useFetchLink = (linkToShorten) => {
   const fetchLink = async (link) => {
     setLoading(true);
     try {
-      const response = await fetch(
+      const response = await axios.get(
         `https://api.shrtco.de/v2/shorten?url=${link}`
       );
-      if (response.ok) {
-        const data = await response.json();
-        setShortLink({ value: data.result.short_link }); //tu podobnie jak w komponencie
-      } else {
-        throw response.status;
-      }
+      setShortLink({ value: response.data.result.short_link });
     } catch (err) {
       setError(err);
     } finally {
