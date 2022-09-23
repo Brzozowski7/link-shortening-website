@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -9,21 +9,14 @@ import {
   ReadyLink,
   IconContainer,
 } from "./ShortenedLink.styles";
+import useCopyToClipboard from "./useCopyToClipboard";
 import { isLink } from "./ShortenedLink.utils";
 import Button from "../Button";
 import { buttonSize } from "../Button/Button.const";
 
 export default function ShortenedLink({ long, short, id, setLinkArr }) {
-  const [isCopied, setIsCopied] = useState(false);
-  const handleClick = () => {
-    navigator.clipboard
-      .writeText(short)
-      .then((res) => setIsCopied(true))
-      .catch((err) => console.log(err));
-    setTimeout(() => {
-      setIsCopied((prev) => !prev);
-    }, 5000);
-  };
+  const [copied, copy] = useCopyToClipboard();
+
   const removeLink = () => {
     setLinkArr((prev) =>
       prev.filter((item) => {
@@ -31,6 +24,7 @@ export default function ShortenedLink({ long, short, id, setLinkArr }) {
       })
     );
   };
+
   return (
     <ShortenedLinkContainer
       as={motion.div}
@@ -40,12 +34,24 @@ export default function ShortenedLink({ long, short, id, setLinkArr }) {
       transition={{ duration: 1 }}
     >
       <LinkToShorten>{long}</LinkToShorten>
-      <ReadyLink onClick={handleClick}>{short}</ReadyLink>
+      <ReadyLink onClick={() => copy(short)}>{short}</ReadyLink>
       <Button
-        clicked={isCopied}
+        clicked={copied}
         size={buttonSize.medium}
-        text={isCopied ? "Copied !" : "Copy !"}
-        onClick={handleClick}
+        text={
+          copied ? (
+            <FormattedMessage
+              id="shortenedLink.copiedBtn"
+              defaultMessage="Copied"
+            />
+          ) : (
+            <FormattedMessage
+              id="shortenedLink.copyBtn"
+              defaultMessage="Copy"
+            />
+          )
+        }
+        onClick={() => copy(short)}
       ></Button>
       <IconContainer>
         <FontAwesomeIcon onClick={removeLink} icon={faX} size={"sm"} />

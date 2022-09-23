@@ -14,7 +14,7 @@ export default function StatComponent({ name, image, content }) {
 }
 
 StatComponent.propTypes = {
-  name: PropTypes.string,
-  content: PropTypes.string,
+  name: PropTypes.object,
+  content: PropTypes.object,
   image: PropTypes.string,
 };
